@@ -6,11 +6,11 @@ import Foundation
 /// Протокол ViewModel деталей фильма
 protocol DetailsViewModelProtocol {
     /// Состояние загрузки данных
-    var viewState: ObservableObject<ViewState<MovieDetails>> { get }
+    var viewState: CustomObservableObject<ViewState<MovieDetails>> { get }
     /// Состояние "в избранном"
-    var isFavorite: ObservableObject<Bool> { get }
+    var isFavorite: CustomObservableObject<Bool> { get }
     /// Системное сообщение
-    var alertMessage: ObservableObject<AlertMessage?> { get }
+    var alertMessage: CustomObservableObject<AlertMessage?> { get }
     /// Метод загрузки деталей фильма
     func fetchMovieDetails()
     /// Метод воспроизведение фильма
@@ -31,9 +31,9 @@ final class DetailsViewModel {
         static let errorMessage = "Произошла ошибка загрузки, попробуйте снова"
     }
 
-    private(set) var viewState: ObservableObject<ViewState<MovieDetails>> = .init(value: .initial)
-    private(set) var isFavorite: ObservableObject<Bool> = .init(value: false)
-    private(set) var alertMessage: ObservableObject<AlertMessage?> = .init(value: nil)
+    private(set) var viewState: CustomObservableObject<ViewState<MovieDetails>> = .init(value: .initial)
+    private(set) var isFavorite: CustomObservableObject<Bool> = .init(value: false)
+    private(set) var alertMessage: CustomObservableObject<AlertMessage?> = .init(value: nil)
 
     private var apiRequest: APIRequest<MovieDetailsResource>?
     private let movieId: Int

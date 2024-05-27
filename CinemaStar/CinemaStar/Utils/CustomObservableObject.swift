@@ -4,7 +4,7 @@
 import Foundation
 
 /// Класс обертка для отслеживания изменения значения
-final class ObservableObject<T> {
+final class CustomObservableObject<T> {
     var value: T {
         didSet {
             bindings.forEach { $0(value) }

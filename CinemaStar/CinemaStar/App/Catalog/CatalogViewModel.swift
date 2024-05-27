@@ -6,7 +6,7 @@ import Foundation
 /// Протокол ViewModel каталога фильмов
 protocol CatalogViewModelProtocol {
     /// Состояние загрузки данных
-    var viewState: ObservableObject<ViewState<[MoviePreview]>> { get }
+    var viewState: CustomObservableObject<ViewState<[MoviePreview]>> { get }
     /// Метод загрузки фильмов в каталоге
     func fetchMovies()
     /// Метод открытия деталей о фильме
@@ -19,7 +19,7 @@ protocol CatalogViewModelProtocol {
 final class CatalogViewModel {
     typealias MoviePreviewsViewState = ViewState<[MoviePreview]>
 
-    private(set) var viewState: ObservableObject<MoviePreviewsViewState> = .init(value: .initial)
+    private(set) var viewState: CustomObservableObject<MoviePreviewsViewState> = .init(value: .initial)
 
     private let coordinator: CatalogCoordinatorProtocol
     private let loadImageService: LoadImageServiceProtocol
