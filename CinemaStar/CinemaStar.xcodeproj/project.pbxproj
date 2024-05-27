@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA16FBDF2C04FB91003171C8 /* CatalogScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA16FBDE2C04FB91003171C8 /* CatalogScreenView.swift */; };
+		DA16FBE22C04FBCE003171C8 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA16FBE12C04FBCE003171C8 /* BackgroundView.swift */; };
 		DAAAA9B12BD6E01A0009D60C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAAA9B02BD6E01A0009D60C /* AppDelegate.swift */; };
 		DAAAA9B32BD6E01A0009D60C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAAA9B22BD6E01A0009D60C /* SceneDelegate.swift */; };
 		DAAAA9BA2BD6E01E0009D60C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAAAA9B92BD6E01E0009D60C /* Images.xcassets */; };
@@ -94,6 +96,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DA16FBDE2C04FB91003171C8 /* CatalogScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogScreenView.swift; sourceTree = "<group>"; };
+		DA16FBE12C04FBCE003171C8 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 		DAAAA9AD2BD6E01A0009D60C /* CinemaStar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CinemaStar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAAAA9B02BD6E01A0009D60C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DAAAA9B22BD6E01A0009D60C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -192,6 +196,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DA16FBDC2C04FB1D003171C8 /* v2 */ = {
+			isa = PBXGroup;
+			children = (
+				DA16FBDD2C04FB3A003171C8 /* View */,
+			);
+			path = v2;
+			sourceTree = "<group>";
+		};
+		DA16FBDD2C04FB3A003171C8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DA16FBE02C04FBBD003171C8 /* Shared */,
+				DA16FBDE2C04FB91003171C8 /* CatalogScreenView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DA16FBE02C04FBBD003171C8 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				DA16FBE12C04FBCE003171C8 /* BackgroundView.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 		DAAAA9A42BD6E01A0009D60C = {
 			isa = PBXGroup;
 			children = (
@@ -216,6 +245,7 @@
 		DAAAA9AF2BD6E01A0009D60C /* CinemaStar */ = {
 			isa = PBXGroup;
 			children = (
+				DA16FBDC2C04FB1D003171C8 /* v2 */,
 				DACF25AB2BD8170300D78225 /* App */,
 				DACF25992BD807FA00D78225 /* Services */,
 				DACF25832BD7E3D500D78225 /* Models */,
@@ -643,7 +673,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftformat >/dev/null; then\n  swiftformat .\nelse\n  echo \"warning: SwiftFormat not installed, download from https://github.com/nicklockwood/SwiftFormat\"\nfi\n";
+			shellScript = "if which swiftformat >/dev/null; then\n#  swiftformat .\nelse\n  echo \"warning: SwiftFormat not installed, download from https://github.com/nicklockwood/SwiftFormat\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -654,10 +684,12 @@
 			files = (
 				DACF25CA2BD84B4100D78225 /* UserDefaultsStorage.swift in Sources */,
 				DAD365D82BDC2830009A223D /* MovieShimmerCollectionViewCell.swift in Sources */,
+				DA16FBE22C04FBCE003171C8 /* BackgroundView.swift in Sources */,
 				DAD365CD2BDBDB46009A223D /* ActorCollectionViewCell.swift in Sources */,
 				DACF25BE2BD839BC00D78225 /* CatalogCoordinator.swift in Sources */,
 				DACF25942BD7EB9A00D78225 /* PersonDTO.swift in Sources */,
 				DACF25A62BD810B000D78225 /* APIRequest.swift in Sources */,
+				DA16FBDF2C04FB91003171C8 /* CatalogScreenView.swift in Sources */,
 				DACF258C2BD7E65400D78225 /* RatingDTO.swift in Sources */,
 				DACF259E2BD80CD800D78225 /* MoviesResource.swift in Sources */,
 				DACF25D82BDAD8FF00D78225 /* UIFont+Extension.swift in Sources */,
