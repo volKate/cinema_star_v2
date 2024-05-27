@@ -12,7 +12,10 @@ struct CatalogScreenView: View {
 
     var body: some View {
         BackgroundView {
-            headerTextView
+            VStack {
+                headerTextView
+                catalogGridView
+            }
         }
     }
 
@@ -31,6 +34,28 @@ struct CatalogScreenView: View {
             .padding(.bottom, 14)
             .frame(maxWidth: .infinity, alignment: .leading)
     }
+
+    private var catalogGridView: some View {
+        ScrollView {
+            LazyVGrid(columns: gridColumns, spacing: 14) {
+                // TODO: replace with real data
+                ForEach(0..<10) { _ in
+                    MovieCardView(
+                        posterImage: Image(.posterPlaceholder),
+                        name: "Movie 64",
+                        rating: 6.8
+                    )
+                    .foregroundStyle(.white)
+                }
+            }
+            .padding(.horizontal, 16)
+        }
+    }
+
+    private let gridColumns = [
+        GridItem(.flexible(), spacing: 18),
+        GridItem(.flexible(), spacing: 18)
+    ]
 }
 
 #Preview {

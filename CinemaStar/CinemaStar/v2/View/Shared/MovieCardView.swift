@@ -34,8 +34,7 @@ struct MovieCardView: View {
         posterImage
             .resizable()
             .aspectRatio(contentMode: .fill)
-            .frame(maxWidth: 250)
-            .aspectRatio(200/170, contentMode: .fit)
+            .frame(maxWidth: 250, maxHeight: 200)
             .clipShape(RoundedRectangle(cornerRadius: 8))
     }
 
