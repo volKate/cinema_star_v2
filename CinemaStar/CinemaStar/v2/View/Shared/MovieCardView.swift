@@ -24,7 +24,7 @@ struct MovieCardView: View {
                 nameView
 
                 if let rating {
-                    makeRatingView(rating)
+                    RatingView(rating)
                 }
             }
         }
@@ -46,15 +46,6 @@ struct MovieCardView: View {
         self.posterImage = posterImage
         self.name = name
         self.rating = rating
-    }
-
-    private func makeRatingView(_ rating: Double) -> some View {
-        let ratingStr = String(format: "%.1f", rating).replacingOccurrences(of: ".", with: ",")
-        return HStack(alignment: .center) {
-            Text("⭐️")
-                .font(.system(size: 14))
-            Text(ratingStr)
-        }
     }
 }
 
