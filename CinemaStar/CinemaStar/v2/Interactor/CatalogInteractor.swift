@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Интерактор каталога
 final class CatalogInteractor {
     
 }

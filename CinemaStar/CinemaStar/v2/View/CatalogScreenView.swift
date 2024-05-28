@@ -52,6 +52,8 @@ struct CatalogScreenView: View {
         }
     }
 
+    @StateObject var presenter: CatalogPresenter
+
     private let gridColumns = [
         GridItem(.flexible(), spacing: 18),
         GridItem(.flexible(), spacing: 18)
@@ -59,5 +61,5 @@ struct CatalogScreenView: View {
 }
 
 #Preview {
-    CatalogScreenView()
+    AppScreenBuilder.stub.build(view: .catalog)
 }

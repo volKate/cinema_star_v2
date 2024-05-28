@@ -1,6 +1,7 @@
 // SceneDelegate.swift
 // Copyright © RoadMap. All rights reserved.
 
+import SwiftUI
 import UIKit
 
 final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
@@ -16,7 +17,12 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         window?.makeKeyAndVisible()
         window?.backgroundColor = .white
-        coordinator = AppCoordinator()
-        coordinator?.start()
+//        coordinator = AppCoordinator()
+//        coordinator?.start()
+
+        let appScreenBuilder = AppScreenBuilder()
+        let rootView = appScreenBuilder.createRoot()
+        let hostingController = UIHostingController(rootView: rootView)
+        window?.rootViewController = hostingController
     }
 }
