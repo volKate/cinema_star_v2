@@ -17,6 +17,9 @@ struct CatalogScreenView: View {
                 catalogGridView
             }
         }
+        .onAppear {
+            presenter.fetchCatalog()
+        }
     }
 
     private var attributedHeaderText: AttributedString {
@@ -38,12 +41,11 @@ struct CatalogScreenView: View {
     private var catalogGridView: some View {
         ScrollView {
             LazyVGrid(columns: gridColumns, spacing: 14) {
-                // TODO: replace with real data
-                ForEach(0..<10) { _ in
+                ForEach(presenter.catalog) { moviePreview in
                     MovieCardView(
                         posterImage: Image(.posterPlaceholder),
-                        name: "Movie 64",
-                        rating: 6.8
+                        name: moviePreview.name,
+                        rating: moviePreview.rating
                     )
                     .foregroundStyle(.white)
                 }
@@ -55,8 +57,8 @@ struct CatalogScreenView: View {
     @StateObject var presenter: CatalogPresenter
 
     private let gridColumns = [
-        GridItem(.flexible(), spacing: 18),
-        GridItem(.flexible(), spacing: 18)
+        GridItem(.flexible(), spacing: 18, alignment: .top),
+        GridItem(.flexible(), spacing: 18, alignment: .top)
     ]
 }
 

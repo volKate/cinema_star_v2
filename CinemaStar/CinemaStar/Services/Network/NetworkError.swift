@@ -9,4 +9,6 @@ enum NetworkError: Error {
     case invalidUrl
     /// Нет данных
     case noData
+    /// Неизвестная ошибка сети
+    case unknown
 }

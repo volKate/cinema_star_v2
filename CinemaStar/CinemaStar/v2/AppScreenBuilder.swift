@@ -17,6 +17,8 @@ enum AppScreen: Hashable {
 final class AppScreenBuilder {
     static let stub = AppScreenBuilder()
     private let navigationService = NavigationService()
+    private let networkService = NetworkService()
+    private let loadImageService = LoadImageService()
 
     func createRoot() -> some View {
         RootView(navigationService: navigationService, appScreenBuilder: self)
@@ -34,7 +36,7 @@ final class AppScreenBuilder {
 
     private func buildCatalog() -> some View {
       let router = CatalogRouter(navigation: navigationService)
-      let interactor = CatalogInteractor()
+      let interactor = CatalogInteractor(networkService: networkService, loadImageService: loadImageService)
       let presenter = CatalogPresenter(router: router, interactor: interactor)
       let view = CatalogScreenView(presenter: presenter)
       return view

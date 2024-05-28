@@ -45,13 +45,13 @@ extension CatalogViewModel: CatalogViewModelProtocol {
 
     func fetchMovies() {
         viewState.value = .loading
-        networkService.loadMovies { [weak self] moviePreviews in
-            guard let moviePreviews else {
-                self?.viewState.value = .error
-                return
-            }
-            self?.viewState.value = .data(moviePreviews)
-        }
+//        networkService.loadMovies { [weak self] moviePreviews in
+//            guard let moviePreviews else {
+//                self?.viewState.value = .error
+//                return
+//            }
+//            self?.viewState.value = .data(moviePreviews)
+//        }
     }
 
     func showMovieDetails(id: Int) {
