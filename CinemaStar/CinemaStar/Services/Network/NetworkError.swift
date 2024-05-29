@@ -11,4 +11,6 @@ enum NetworkError: Error {
     case noData
     /// Неизвестная ошибка сети
     case unknown
+    /// Ошибка ответа
+    case responseError
 }

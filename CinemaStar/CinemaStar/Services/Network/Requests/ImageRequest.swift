@@ -1,6 +1,7 @@
 // ImageRequest.swift
 // Copyright © RoadMap. All rights reserved.
 
+import Combine
 import Foundation
 
 /// Запрос на сервер за изображением
@@ -21,5 +22,9 @@ extension ImageRequest: NetworkRequest {
 
     func execute(withCompletion completion: @escaping (Data?) -> Void) {
         load(url, withCompletion: completion)
+    }
+
+    func execute() -> AnyPublisher<Data, NetworkError> {
+        load(url)
     }
 }

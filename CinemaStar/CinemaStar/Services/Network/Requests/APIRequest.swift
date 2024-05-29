@@ -1,6 +1,7 @@
 // APIRequest.swift
 // Copyright © RoadMap. All rights reserved.
 
+import Combine
 import Foundation
 
 /// Запрос на сервер за JSON данными
@@ -15,6 +16,7 @@ final class APIRequest<Resource: APIResource> {
 // MARK: - APIRequest + NetworkRequest
 
 extension APIRequest: NetworkRequest {
+    
     func decode(_ data: Data) -> Resource.ModelType? {
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .secondsSince1970
@@ -25,5 +27,12 @@ extension APIRequest: NetworkRequest {
     func execute(withCompletion completion: @escaping (Resource.ModelType?) -> Void) {
         guard let url = resource.url else { return }
         load(url, withCompletion: completion)
+    }
+
+    func execute() -> AnyPublisher<Resource.ModelType, NetworkError> {
+        // TODO: implement
+        Empty()
+            .setFailureType(to: NetworkError.self)
+            .eraseToAnyPublisher()
     }
 }
