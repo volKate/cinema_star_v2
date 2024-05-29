@@ -36,3 +36,34 @@ extension MoviePreview: Equatable {
         lhs.id == rhs.id
     }
 }
+
+// MARK: - Mock
+
+extension MoviePreview {
+    fileprivate init(
+        id: Int,
+        name: String,
+        posterUrl: URL?,
+        kpRating: String,
+        rating: Double
+    ) {
+        self.id = id
+        self.name = name
+        self.posterUrl = posterUrl
+        self.kpRating = kpRating
+        self.rating = rating
+    }
+    
+    private static var mockCount = 0
+
+    static func createMock() -> MoviePreview {
+        MoviePreview.mockCount += 1
+        return MoviePreview(
+            id: mockCount,
+            name: "",
+            posterUrl: nil,
+            kpRating: "",
+            rating: 0
+        )
+    }
+}

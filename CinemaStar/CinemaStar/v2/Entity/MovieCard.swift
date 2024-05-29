@@ -13,3 +13,14 @@ struct MovieCard {
     let preview: MoviePreview
     let poster: Image
 }
+
+// MARK: - Mock
+
+extension MovieCard {
+    static func createMock() -> MovieCard {
+        MovieCard(
+            preview: MoviePreview.createMock(),
+            poster: Image(.posterPlaceholder)
+        )
+    }
+}

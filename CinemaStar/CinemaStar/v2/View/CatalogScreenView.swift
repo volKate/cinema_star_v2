@@ -29,25 +29,47 @@ struct CatalogScreenView: View {
         case .initial:
             EmptyView()
         case .loading:
-            Text("Loading")
+            loadingView
         case .data(let movieCards):
             makeCatalogGridView(movieCards)
         case .noData:
-            makeMessageView(
-                iconName: "exclamationmark.magnifyingglass",
-                message: "Sorry\nNo Data Found"
-            )
-            .foregroundStyle(.white)
-            .frame(maxHeight: .infinity, alignment: .center)
+            noDataView
         case .error:
-            makeMessageView(
-                iconName: "exclamationmark.triangle",
-                message: "Sorry\nAn error occured",
-                retryAction: { presenter.fetchCatalog() }
-            )
-            .foregroundStyle(.black)
-            .frame(maxHeight: .infinity, alignment: .center)
+            errorView
         }
+    }
+
+    private var loadingView: some View {
+        makeCatalogGridView(presenter.loadingStubCards)
+            .redacted(reason: .placeholder)
+            .disabled(true)
+            .opacity(isLoadingAnimating ? 1 : 0.2)
+            .animation(.easeInOut(duration: 0.8).repeatForever(autoreverses: true), value: isLoadingAnimating)
+            .onAppear {
+                isLoadingAnimating = true
+            }
+            .onDisappear {
+                isLoadingAnimating = false
+            }
+    }
+
+    private var noDataView: some View {
+        makeMessageView(
+            iconName: "exclamationmark.magnifyingglass",
+            message: "Sorry\nNo Data Found"
+        )
+        .foregroundStyle(.white)
+        .frame(maxHeight: .infinity, alignment: .center)
+    }
+
+    private var errorView: some View {
+        makeMessageView(
+            iconName: "exclamationmark.triangle",
+            message: "Sorry\nAn error occured",
+            retryAction: { presenter.fetchCatalog() }
+        )
+        .foregroundStyle(.black)
+        .frame(maxHeight: .infinity, alignment: .center)
     }
 
     private var attributedHeaderText: AttributedString {
@@ -67,6 +89,7 @@ struct CatalogScreenView: View {
     }
 
     @StateObject var presenter: CatalogPresenter
+    @State private var isLoadingAnimating = false
 
     private let gridColumns = [
         GridItem(.flexible(), spacing: 18, alignment: .top),
@@ -96,9 +119,8 @@ struct CatalogScreenView: View {
     ) -> some View {
         VStack(spacing: 12) {
             Image(systemName: iconName)
-                .font(.title)
+                .font(.largeTitle)
             Text(message)
-                .font(.title3)
                 .multilineTextAlignment(.center)
             if let action = retryAction {
                 Button(action: action, label: {
