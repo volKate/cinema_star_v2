@@ -11,43 +11,35 @@ import SwiftUI
 /// Презентер каталога
 final class CatalogPresenter: ObservableObject {
 
-    @Published var catalog: [MoviePreview] = []
-    @Published var viewState: ViewState<[MoviePreview]> = .initial
+    @Published var viewState: ViewState<[MovieCard]> = .initial
 
     private let router: CatalogRouter
-    @ObservedObject private var interactor: CatalogInteractor
+    private let interactor: CatalogInteractor
     private var cancellablesSet = Set<AnyCancellable>()
-
-    @Published private var posters: [Image] = []
 
     init(router: CatalogRouter, interactor: CatalogInteractor) {
         self.interactor = interactor
         self.router = router
-
-        setupBindings()
     }
 
     func fetchCatalog() {
         viewState = .loading
         interactor.fetchCatalog()
-    }
-
-    private func setupBindings() {
-        interactor.fetchResult
             .receive(on: RunLoop.main)
-            .assign(to: &$catalog)
-
-        $catalog
-            .combineLatest($posters)
-            .sink { completion in
-                // ??
-            } receiveValue: { (catalog, posters) in
-                guard !posters.isEmpty else {
-                    // moviewPreviewsWithPoster = []
-                    return
+            .sink { [unowned self] completion in
+                switch completion {
+                case .finished:
+                    cancellablesSet.removeAll()
+                case let .failure(error):
+                    switch error {
+                    case .noData:
+                        viewState = .noData
+                    default:
+                        viewState = .error
+                    }
                 }
-                // moviePreviewsWithPoster = zip arrays
-//                viewState = .data(moviePreviewsWithPoster)
+            } receiveValue: { [unowned self] movieCards in
+                viewState = .data(movieCards)
             }
             .store(in: &cancellablesSet)
     }

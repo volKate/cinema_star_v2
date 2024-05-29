@@ -14,11 +14,27 @@ struct CatalogScreenView: View {
         BackgroundView {
             VStack {
                 headerTextView
-                catalogGridView
+                contentView
             }
         }
         .onAppear {
             presenter.fetchCatalog()
+        }
+    }
+
+    @ViewBuilder
+    private var contentView: some View {
+        switch presenter.viewState {
+        case .initial:
+            EmptyView()
+        case .loading:
+            Text("Loading")
+        case .data(let movieCards):
+            makeCatalogGridView(movieCards)
+        case .noData:
+            Text("No data")
+        case .error:
+            Text("error")
         }
     }
 
@@ -38,14 +54,21 @@ struct CatalogScreenView: View {
             .frame(maxWidth: .infinity, alignment: .leading)
     }
 
-    private var catalogGridView: some View {
+    @StateObject var presenter: CatalogPresenter
+
+    private let gridColumns = [
+        GridItem(.flexible(), spacing: 18, alignment: .top),
+        GridItem(.flexible(), spacing: 18, alignment: .top)
+    ]
+
+    private func makeCatalogGridView(_ movieCards: [MovieCard]) -> some View {
         ScrollView {
             LazyVGrid(columns: gridColumns, spacing: 14) {
-                ForEach(presenter.catalog) { moviePreview in
+                ForEach(movieCards, id: \.preview.id) { movie in
                     MovieCardView(
-                        posterImage: Image(.posterPlaceholder),
-                        name: moviePreview.name,
-                        rating: moviePreview.rating
+                        posterImage: movie.poster,
+                        name: movie.preview.name,
+                        rating: movie.preview.rating
                     )
                     .foregroundStyle(.white)
                 }
@@ -53,13 +76,6 @@ struct CatalogScreenView: View {
             .padding(.horizontal, 16)
         }
     }
-
-    @StateObject var presenter: CatalogPresenter
-
-    private let gridColumns = [
-        GridItem(.flexible(), spacing: 18, alignment: .top),
-        GridItem(.flexible(), spacing: 18, alignment: .top)
-    ]
 }
 
 #Preview {

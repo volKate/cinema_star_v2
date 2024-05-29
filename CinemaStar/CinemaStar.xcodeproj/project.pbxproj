@@ -16,6 +16,7 @@
 		DA16FBF42C063372003171C8 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA16FBF32C063372003171C8 /* RootView.swift */; };
 		DA16FBF62C063404003171C8 /* NavigationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA16FBF52C063404003171C8 /* NavigationService.swift */; };
 		DA16FBF82C063655003171C8 /* CatalogRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA16FBF72C063655003171C8 /* CatalogRouter.swift */; };
+		DA16FBFA2C075CA1003171C8 /* MovieCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA16FBF92C075CA1003171C8 /* MovieCard.swift */; };
 		DAAAA9B12BD6E01A0009D60C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAAA9B02BD6E01A0009D60C /* AppDelegate.swift */; };
 		DAAAA9B32BD6E01A0009D60C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAAA9B22BD6E01A0009D60C /* SceneDelegate.swift */; };
 		DAAAA9BA2BD6E01E0009D60C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAAAA9B92BD6E01E0009D60C /* Images.xcassets */; };
@@ -112,6 +113,7 @@
 		DA16FBF32C063372003171C8 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		DA16FBF52C063404003171C8 /* NavigationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationService.swift; sourceTree = "<group>"; };
 		DA16FBF72C063655003171C8 /* CatalogRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogRouter.swift; sourceTree = "<group>"; };
+		DA16FBF92C075CA1003171C8 /* MovieCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCard.swift; sourceTree = "<group>"; };
 		DAAAA9AD2BD6E01A0009D60C /* CinemaStar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CinemaStar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAAAA9B02BD6E01A0009D60C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DAAAA9B22BD6E01A0009D60C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -270,6 +272,7 @@
 		DA16FBE82C052387003171C8 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				DA16FBF92C075CA1003171C8 /* MovieCard.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -755,6 +758,7 @@
 				DA16FBEA2C0523C7003171C8 /* CatalogInteractor.swift in Sources */,
 				DAAAA9B12BD6E01A0009D60C /* AppDelegate.swift in Sources */,
 				DA16FBF82C063655003171C8 /* CatalogRouter.swift in Sources */,
+				DA16FBFA2C075CA1003171C8 /* MovieCard.swift in Sources */,
 				DACF25C22BD83FF200D78225 /* TokenStorage.swift in Sources */,
 				DACF25E02BDAEBAC00D78225 /* DetailsLanguageTableViewCell.swift in Sources */,
 				DACF258E2BD7E99000D78225 /* MovieDetails.swift in Sources */,

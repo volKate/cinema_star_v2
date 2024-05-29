@@ -18,7 +18,7 @@ final class AppScreenBuilder {
     static let stub = AppScreenBuilder()
     private let navigationService = NavigationService()
     private let networkService = NetworkService()
-    private let loadImageService = LoadImageService()
+    private let loadImageService = LoadImageProxy(service: LoadImageService())
 
     func createRoot() -> some View {
         RootView(navigationService: navigationService, appScreenBuilder: self)

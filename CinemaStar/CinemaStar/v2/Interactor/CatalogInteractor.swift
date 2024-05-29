@@ -7,15 +7,12 @@
 
 import Combine
 import Foundation
+import SwiftUI
 
 /// Интерактор каталога
 final class CatalogInteractor: ObservableObject {
-
-    let fetchResult = PassthroughSubject<[MoviePreview], Never>()
-
     private let networkService: NetworkServiceProtocol
     private let loadImageService: LoadImageServiceProtocol
-    private var cancellablesSet: Set<AnyCancellable> = []
 
     init(
         networkService: NetworkServiceProtocol,
@@ -25,18 +22,39 @@ final class CatalogInteractor: ObservableObject {
         self.loadImageService = loadImageService
     }
     
-    func fetchCatalog() {
-        networkService.loadMovies()
-            .receive(on: RunLoop.main)
-            .sink { completion in
-                if case let .failure(err) = completion {
-                    // do smth with error, set it to some error object
-                }
-            } receiveValue: { [unowned self] moviePreviews in
-                fetchResult.send(moviePreviews)
+    func fetchCatalog() -> AnyPublisher<[MovieCard], NetworkError> {
+        fetchMovies()
+    }
 
-                // for each moviePreview run loadImage
+    private func fetchPoster(_ posterUrl: URL?) -> AnyPublisher<Image, Never> {
+        guard let posterUrl else {
+            return Just(Image(.posterPlaceholder))
+                .eraseToAnyPublisher()
+        }
+
+        return loadImageService.load(with: posterUrl)
+            .tryMap { data in
+                guard let uiImage = UIImage(data: data) else {
+                    throw NetworkError.unknown
+                }
+                return Image(uiImage: uiImage)
             }
-            .store(in: &cancellablesSet)
+            .replaceError(with: Image(.posterPlaceholder))
+            .eraseToAnyPublisher()
+
+    }
+
+    private func fetchMovies() -> AnyPublisher<[MovieCard], NetworkError> {
+        networkService.loadMovies()
+            .flatMap { $0.publisher }
+            .flatMap { [unowned self] moviePreview in
+                fetchPoster(moviePreview.posterUrl)
+                    .map {
+                        MovieCard(preview: moviePreview, poster: $0)
+                    }
+                    .eraseToAnyPublisher()
+            }
+            .collect()
+            .eraseToAnyPublisher()
     }
 }
