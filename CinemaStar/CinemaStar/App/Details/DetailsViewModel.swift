@@ -75,7 +75,7 @@ final class DetailsViewModel {
 
 extension DetailsViewModel: DetailsViewModelProtocol {
     func loadImage(with url: URL, completion: @escaping (Data?) -> Void) {
-        loadImageService.load(with: url, completion: completion)
+//        loadImageService.load(with: url, completion: completion)
     }
 
     func handleToggleFavorite() {

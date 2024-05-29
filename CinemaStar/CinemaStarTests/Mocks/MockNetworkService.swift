@@ -2,6 +2,7 @@
 // Copyright © RoadMap. All rights reserved.
 
 @testable import CinemaStar
+import Combine
 import Foundation
 
 /// Мок сервиса загрузки данных сети
@@ -24,5 +25,11 @@ final class MockNetworkService: NetworkServiceProtocol {
             return
         }
         completion(expectedMovies)
+    }
+
+    func loadMovies() -> Future<[CinemaStar.MoviePreview], CinemaStar.NetworkError> {
+        Future { promise in
+            promise(.failure(.unknown))
+        }
     }
 }

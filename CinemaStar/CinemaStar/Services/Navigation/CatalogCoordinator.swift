@@ -20,15 +20,15 @@ final class CatalogCoordinator: CatalogCoordinatorProtocol {
     private let networkService = NetworkService()
 
     func start() {
-        let catalogViewModel = CatalogViewModel(
-            coordinator: self,
-            loadImageService: loadImageService,
-            networkService: networkService
-        )
-        let catalogViewController = CatalogViewController(catalogViewModel: catalogViewModel)
-        let navigationController = UINavigationController(rootViewController: catalogViewController)
-        self.navigationController = navigationController
-        setAsRoot(navigationController)
+//        let catalogViewModel = CatalogViewModel(
+//            coordinator: self,
+//            loadImageService: loadImageService,
+//            networkService: networkService
+//        )
+//        let catalogViewController = CatalogViewController(catalogViewModel: catalogViewModel)
+//        let navigationController = UINavigationController(rootViewController: catalogViewController)
+//        self.navigationController = navigationController
+//        setAsRoot(navigationController)
     }
 
     func openMovieDetails(id: Int) {

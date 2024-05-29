@@ -50,8 +50,6 @@
 		DACF25A42BD80FA800D78225 /* ImageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACF25A32BD80FA800D78225 /* ImageRequest.swift */; };
 		DACF25A62BD810B000D78225 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACF25A52BD810B000D78225 /* APIRequest.swift */; };
 		DACF25A82BD8135900D78225 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACF25A72BD8135900D78225 /* NetworkError.swift */; };
-		DACF25AE2BD8174900D78225 /* CatalogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACF25AD2BD8174900D78225 /* CatalogViewModel.swift */; };
-		DACF25B02BD8178000D78225 /* CatalogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACF25AF2BD8178000D78225 /* CatalogViewController.swift */; };
 		DACF25B22BD8285A00D78225 /* ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACF25B12BD8285A00D78225 /* ViewState.swift */; };
 		DACF25B52BD82CCB00D78225 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACF25B42BD82CCB00D78225 /* DetailsViewController.swift */; };
 		DACF25B72BD82D0900D78225 /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACF25B62BD82D0900D78225 /* DetailsViewModel.swift */; };
@@ -79,7 +77,6 @@
 		DAD365CF2BDBE723009A223D /* DetailsRecommendationsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD365CE2BDBE723009A223D /* DetailsRecommendationsTableViewCell.swift */; };
 		DAD365D12BDBE75C009A223D /* PreviewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD365D02BDBE75C009A223D /* PreviewCollectionViewCell.swift */; };
 		DAD365D62BDC1746009A223D /* AlertMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD365D52BDC1746009A223D /* AlertMessage.swift */; };
-		DAD365D82BDC2830009A223D /* MovieShimmerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD365D72BDC2830009A223D /* MovieShimmerCollectionViewCell.swift */; };
 		DAD365DA2BDC340D009A223D /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD365D92BDC340D009A223D /* NetworkService.swift */; };
 		DAD365DD2BDD3D0D009A223D /* MockObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD365DC2BDD3D0D009A223D /* MockObjects.swift */; };
 		DAD365DF2BDD3F25009A223D /* MockNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD365DE2BDD3F25009A223D /* MockNetworkService.swift */; };
@@ -154,8 +151,6 @@
 		DACF25A32BD80FA800D78225 /* ImageRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRequest.swift; sourceTree = "<group>"; };
 		DACF25A52BD810B000D78225 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		DACF25A72BD8135900D78225 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
-		DACF25AD2BD8174900D78225 /* CatalogViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogViewModel.swift; sourceTree = "<group>"; };
-		DACF25AF2BD8178000D78225 /* CatalogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogViewController.swift; sourceTree = "<group>"; };
 		DACF25B12BD8285A00D78225 /* ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewState.swift; sourceTree = "<group>"; };
 		DACF25B42BD82CCB00D78225 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		DACF25B62BD82D0900D78225 /* DetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
@@ -181,7 +176,6 @@
 		DAD365CE2BDBE723009A223D /* DetailsRecommendationsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsRecommendationsTableViewCell.swift; sourceTree = "<group>"; };
 		DAD365D02BDBE75C009A223D /* PreviewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewCollectionViewCell.swift; sourceTree = "<group>"; };
 		DAD365D52BDC1746009A223D /* AlertMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertMessage.swift; sourceTree = "<group>"; };
-		DAD365D72BDC2830009A223D /* MovieShimmerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieShimmerCollectionViewCell.swift; sourceTree = "<group>"; };
 		DAD365D92BDC340D009A223D /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		DAD365DC2BDD3D0D009A223D /* MockObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockObjects.swift; sourceTree = "<group>"; };
 		DAD365DE2BDD3F25009A223D /* MockNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkService.swift; sourceTree = "<group>"; };
@@ -447,19 +441,9 @@
 			isa = PBXGroup;
 			children = (
 				DACF25B32BD82CB700D78225 /* Details */,
-				DACF25AC2BD8173100D78225 /* Catalog */,
 				DACF25D12BD99D8F00D78225 /* Shared */,
 			);
 			path = App;
-			sourceTree = "<group>";
-		};
-		DACF25AC2BD8173100D78225 /* Catalog */ = {
-			isa = PBXGroup;
-			children = (
-				DACF25AD2BD8174900D78225 /* CatalogViewModel.swift */,
-				DAD365D22BDBF353009A223D /* View */,
-			);
-			path = Catalog;
 			sourceTree = "<group>";
 		};
 		DACF25B32BD82CB700D78225 /* Details */ = {
@@ -539,15 +523,6 @@
 				DACF25D72BDAD8FF00D78225 /* UIFont+Extension.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		DAD365D22BDBF353009A223D /* View */ = {
-			isa = PBXGroup;
-			children = (
-				DACF25AF2BD8178000D78225 /* CatalogViewController.swift */,
-				DAD365D72BDC2830009A223D /* MovieShimmerCollectionViewCell.swift */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		DAD365DB2BDD3CFB009A223D /* Mocks */ = {
@@ -748,7 +723,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DACF25CA2BD84B4100D78225 /* UserDefaultsStorage.swift in Sources */,
-				DAD365D82BDC2830009A223D /* MovieShimmerCollectionViewCell.swift in Sources */,
 				DA16FBE22C04FBCE003171C8 /* BackgroundView.swift in Sources */,
 				DAD365CD2BDBDB46009A223D /* ActorCollectionViewCell.swift in Sources */,
 				DACF25BE2BD839BC00D78225 /* CatalogCoordinator.swift in Sources */,
@@ -793,7 +767,6 @@
 				DACF25862BD7E5E600D78225 /* WrapperDTO.swift in Sources */,
 				DACF25B72BD82D0900D78225 /* DetailsViewModel.swift in Sources */,
 				DACF25DE2BDAEA2400D78225 /* DetailsReleaseInfoTableViewCell.swift in Sources */,
-				DACF25B02BD8178000D78225 /* CatalogViewController.swift in Sources */,
 				DAD365CF2BDBE723009A223D /* DetailsRecommendationsTableViewCell.swift in Sources */,
 				DACF25BB2BD8362D00D78225 /* AppCoordinator.swift in Sources */,
 				DA16FBF42C063372003171C8 /* RootView.swift in Sources */,
@@ -806,7 +779,6 @@
 				DACF259C2BD80A2E00D78225 /* APIResource.swift in Sources */,
 				DACF25CD2BD99AA700D78225 /* DetailsTableView.swift in Sources */,
 				DAD365D12BDBE75C009A223D /* PreviewCollectionViewCell.swift in Sources */,
-				DACF25AE2BD8174900D78225 /* CatalogViewModel.swift in Sources */,
 				DA16FBFE2C079149003171C8 /* DetailsScreenView.swift in Sources */,
 				DA16FBEC2C052403003171C8 /* CatalogPresenter.swift in Sources */,
 				DACF25882BD7E61700D78225 /* MoviePreviewDTO.swift in Sources */,
