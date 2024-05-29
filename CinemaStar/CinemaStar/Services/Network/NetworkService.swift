@@ -33,21 +33,23 @@ final class NetworkService: NetworkServiceProtocol {
     }
 
     func loadMovies() -> Future<[MoviePreview], NetworkError> {
-        return Future { promise in
+        return Future { [unowned self] promise in
             let resource = MoviesResource()
             let request = APIRequest(resource: resource)
 
-            request.execute { moviesDTO in
-                _ = request
-                DispatchQueue.main.async {
-                    guard let moviesDTO else {
-                        promise(.failure(.noData))
-                        return
+            request.execute()
+                .map { $0.docs }
+                .flatMap { $0.publisher }
+                .map { MoviePreview(fromDTO: $0) }
+                .collect()
+                .sink { completion in
+                    if case let .failure(err)  = completion {
+                        promise(.failure(err))
                     }
-                    let moviePreviews = moviesDTO.docs.map { MoviePreview(fromDTO: $0) }
-                    promise(.success(moviePreviews))
+                } receiveValue: { data in
+                    promise(.success(data))
                 }
-            }
+                .store(in: &cancellablesSet)
         }
     }
 }

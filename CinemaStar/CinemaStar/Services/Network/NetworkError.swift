@@ -13,4 +13,6 @@ enum NetworkError: Error {
     case unknown
     /// Ошибка ответа
     case responseError
+    /// Ошибка парсинга
+    case parsing
 }

@@ -30,9 +30,20 @@ extension APIRequest: NetworkRequest {
     }
 
     func execute() -> AnyPublisher<Resource.ModelType, NetworkError> {
-        // TODO: implement
-        Empty()
-            .setFailureType(to: NetworkError.self)
+        guard let url = resource.url else {
+            return Fail(error: NetworkError.invalidUrl).eraseToAnyPublisher()
+        }
+        return load(url)
+            .decode(type: ModelType.self, decoder: JSONDecoder())
+            .mapError { error in
+                if error as? DecodingError != nil {
+                    return .parsing
+                }
+                if let networkError = error as? NetworkError {
+                    return networkError
+                }
+                return .unknown
+            }
             .eraseToAnyPublisher()
     }
 }
