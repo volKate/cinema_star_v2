@@ -19,7 +19,10 @@ struct CatalogScreenView: View {
             .frame(maxHeight: .infinity, alignment: .top)
         }
         .onAppear {
-            presenter.fetchCatalog()
+            if !isLoaded {
+                presenter.fetchCatalog()
+                isLoaded = true
+            }
         }
     }
 
@@ -40,7 +43,7 @@ struct CatalogScreenView: View {
     }
 
     private var loadingView: some View {
-        makeCatalogGridView(presenter.loadingStubCards)
+        makeCatalogGridView(presenter.loadingStubCards, isMock: true)
             .redacted(reason: .placeholder)
             .disabled(true)
             .opacity(isLoadingAnimating ? 1 : 0.2)
@@ -66,7 +69,9 @@ struct CatalogScreenView: View {
         makeMessageView(
             iconName: "exclamationmark.triangle",
             message: "Sorry\nAn error occured",
-            retryAction: { presenter.fetchCatalog() }
+            retryAction: {
+                presenter.fetchCatalog()
+            }
         )
         .foregroundStyle(.black)
         .frame(maxHeight: .infinity, alignment: .center)
@@ -90,13 +95,14 @@ struct CatalogScreenView: View {
 
     @StateObject var presenter: CatalogPresenter
     @State private var isLoadingAnimating = false
+    @State private var isLoaded = false
 
     private let gridColumns = [
         GridItem(.flexible(), spacing: 18, alignment: .top),
         GridItem(.flexible(), spacing: 18, alignment: .top)
     ]
 
-    private func makeCatalogGridView(_ movieCards: [MovieCard]) -> some View {
+    private func makeCatalogGridView(_ movieCards: [MovieCard], isMock: Bool = false) -> some View {
         ScrollView {
             LazyVGrid(columns: gridColumns, spacing: 14) {
                 ForEach(movieCards, id: \.preview.id) { movie in
@@ -106,6 +112,11 @@ struct CatalogScreenView: View {
                         rating: movie.preview.rating
                     )
                     .foregroundStyle(.white)
+                    .onTapGesture {
+                        if !isMock {
+                            presenter.openDetails(id: movie.preview.id)
+                        }
+                    }
                 }
             }
             .padding(.horizontal, 16)

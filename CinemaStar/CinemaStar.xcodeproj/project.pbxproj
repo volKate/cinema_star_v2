@@ -18,6 +18,8 @@
 		DA16FBF82C063655003171C8 /* CatalogRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA16FBF72C063655003171C8 /* CatalogRouter.swift */; };
 		DA16FBFA2C075CA1003171C8 /* MovieCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA16FBF92C075CA1003171C8 /* MovieCard.swift */; };
 		DA16FBFC2C07827A003171C8 /* Typealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA16FBFB2C07827A003171C8 /* Typealias.swift */; };
+		DA16FBFE2C079149003171C8 /* DetailsScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA16FBFD2C079149003171C8 /* DetailsScreenView.swift */; };
+		DA16FC002C079330003171C8 /* DetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA16FBFF2C079330003171C8 /* DetailsPresenter.swift */; };
 		DAAAA9B12BD6E01A0009D60C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAAA9B02BD6E01A0009D60C /* AppDelegate.swift */; };
 		DAAAA9B32BD6E01A0009D60C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAAA9B22BD6E01A0009D60C /* SceneDelegate.swift */; };
 		DAAAA9BA2BD6E01E0009D60C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAAAA9B92BD6E01E0009D60C /* Images.xcassets */; };
@@ -116,6 +118,8 @@
 		DA16FBF72C063655003171C8 /* CatalogRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogRouter.swift; sourceTree = "<group>"; };
 		DA16FBF92C075CA1003171C8 /* MovieCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCard.swift; sourceTree = "<group>"; };
 		DA16FBFB2C07827A003171C8 /* Typealias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealias.swift; sourceTree = "<group>"; };
+		DA16FBFD2C079149003171C8 /* DetailsScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsScreenView.swift; sourceTree = "<group>"; };
+		DA16FBFF2C079330003171C8 /* DetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPresenter.swift; sourceTree = "<group>"; };
 		DAAAA9AD2BD6E01A0009D60C /* CinemaStar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CinemaStar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAAAA9B02BD6E01A0009D60C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DAAAA9B22BD6E01A0009D60C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -235,6 +239,7 @@
 				DA16FBE02C04FBBD003171C8 /* Shared */,
 				DA16FBDE2C04FB91003171C8 /* CatalogScreenView.swift */,
 				DA16FBF32C063372003171C8 /* RootView.swift */,
+				DA16FBFD2C079149003171C8 /* DetailsScreenView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -260,6 +265,7 @@
 			isa = PBXGroup;
 			children = (
 				DA16FBEB2C052403003171C8 /* CatalogPresenter.swift */,
+				DA16FBFF2C079330003171C8 /* DetailsPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -758,6 +764,7 @@
 				DACF25E22BDAF84400D78225 /* LoadImageService.swift in Sources */,
 				DACF25802BD7D50E00D78225 /* CustomObservableObject.swift in Sources */,
 				DAD365D62BDC1746009A223D /* AlertMessage.swift in Sources */,
+				DA16FC002C079330003171C8 /* DetailsPresenter.swift in Sources */,
 				DACF25E62BDB0F7000D78225 /* ShimmerLayer.swift in Sources */,
 				DA16FBEA2C0523C7003171C8 /* CatalogInteractor.swift in Sources */,
 				DAAAA9B12BD6E01A0009D60C /* AppDelegate.swift in Sources */,
@@ -800,6 +807,7 @@
 				DACF25CD2BD99AA700D78225 /* DetailsTableView.swift in Sources */,
 				DAD365D12BDBE75C009A223D /* PreviewCollectionViewCell.swift in Sources */,
 				DACF25AE2BD8174900D78225 /* CatalogViewModel.swift in Sources */,
+				DA16FBFE2C079149003171C8 /* DetailsScreenView.swift in Sources */,
 				DA16FBEC2C052403003171C8 /* CatalogPresenter.swift in Sources */,
 				DACF25882BD7E61700D78225 /* MoviePreviewDTO.swift in Sources */,
 			);

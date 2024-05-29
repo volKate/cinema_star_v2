@@ -17,9 +17,8 @@ struct RootView: View {
             appScreenBuilder.build(view: .catalog)
                 .navigationDestination(for: AppScreen.self) { path in
                     switch path {
-//                        What is supposed to happen here and how it works with routers ???
-//                        case .details:
-//                            appScreenBuilder.build(view: .details)
+                    case .details(let id):
+                        appScreenBuilder.build(view: .details(id: id))
                     default:
                         fatalError()
                     }

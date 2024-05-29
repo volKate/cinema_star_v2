@@ -10,7 +10,7 @@ import SwiftUI
 /// Перечисление экранов
 enum AppScreen: Hashable {
     case catalog
-    case details
+    case details(id: Int)
 }
 
 /// Билдер экранов
@@ -29,8 +29,8 @@ final class AppScreenBuilder {
         switch view {
         case .catalog:
             buildCatalog()
-        case .details:
-            buildCatalog()
+        case .details(let id):
+            buildDetails(id: id)
         }
     }
 
@@ -40,5 +40,11 @@ final class AppScreenBuilder {
       let presenter = CatalogPresenter(router: router, interactor: interactor)
       let view = CatalogScreenView(presenter: presenter)
       return view
+    }
+
+    private func buildDetails(id: Int) -> some View {
+        let presenter = DetailsPresenter(id: id)
+        let view = DetailsScreenView(presenter: presenter)
+        return view
     }
 }

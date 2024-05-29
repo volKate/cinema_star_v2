@@ -50,4 +50,8 @@ final class CatalogPresenter: ObservableObject {
             }
             .store(in: &cancellablesSet)
     }
+
+    func openDetails(id: Int) {
+        router.navigateToDetails(id: id)
+    }
 }

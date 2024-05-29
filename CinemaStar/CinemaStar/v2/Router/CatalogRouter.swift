@@ -14,4 +14,8 @@ final class CatalogRouter {
     init(navigation: NavigationService) {
         self.navigation = navigation
     }
+
+    func navigateToDetails(id: Int) {
+        navigation.items.append(.details(id: id))
+    }
 }
