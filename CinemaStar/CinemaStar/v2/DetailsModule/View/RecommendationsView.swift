@@ -27,7 +27,7 @@ struct RecommendationsView: View {
     }
 
     private var recommendationsGrid: some View {
-        ScrollView {
+        ScrollView(.horizontal, showsIndicators: false) {
             LazyHGrid(rows: gridRows) {
                 ForEach(movieCards, id: \.preview.id) { movieCard in
                     MovieCardView(
