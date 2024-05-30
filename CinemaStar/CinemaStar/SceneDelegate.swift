@@ -6,7 +6,6 @@ import UIKit
 
 final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
-    private var coordinator: Coordinator?
 
     func scene(_ scene: UIScene, willConnectTo _: UISceneSession, options _: UIScene.ConnectionOptions) {
         configureWindow(with: scene)
@@ -17,8 +16,6 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         window?.makeKeyAndVisible()
         window?.backgroundColor = .white
-//        coordinator = AppCoordinator()
-//        coordinator?.start()
 
         let appScreenBuilder = AppScreenBuilder()
         let rootView = appScreenBuilder.createRoot()
