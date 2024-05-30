@@ -13,7 +13,7 @@ struct ActorsView: View {
         static let actorsTitle = "Актеры и съемочная группа "
     }
 
-    let actors: [String]
+    let actors: [ActorCard]
 
     var body: some View {
         contentView
@@ -34,7 +34,7 @@ struct ActorsView: View {
     private var actorsGridView: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             LazyHGrid(rows: gridRows) {
-                ForEach(actors, id: \.self) { actor in
+                ForEach(actors, id: \.name) { actor in
                     makeActorView(actor)
                 }
             }
@@ -46,21 +46,17 @@ struct ActorsView: View {
         GridItem(.fixed(60), spacing: 4)
     ]
 
-    private func makeActorView(_ actor: String) -> some View {
+    private func makeActorView(_ actor: ActorCard) -> some View {
         VStack {
-            Image(.posterPlaceholder)
+            actor.photo
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 46, height: 73)
-            Text(actor)
+            Text(actor.name)
                 .font(.system(size: 8))
                 .multilineTextAlignment(.center)
                 .lineLimit(2)
         }
         .frame(width: 60, height: 100, alignment: .top)
     }
-}
-
-#Preview {
-    ActorsView(actors: Array(repeating: "Name", count: 10))
 }

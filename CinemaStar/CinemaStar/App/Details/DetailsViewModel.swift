@@ -102,17 +102,17 @@ extension DetailsViewModel: DetailsViewModelProtocol {
     func fetchMovieDetails() {
         viewState.value = .loading
 
-        networkService.loadMovieDetails(id: movieId) { [weak self] movieDetails in
-            guard let movieDetails else {
-                self?.viewState.value = .error
-                self?.alertMessage.value = AlertMessage(
-                    title: Constants.errorTitle,
-                    description: Constants.errorMessage
-                )
-                return
-            }
-            self?.viewState.value = .data(movieDetails)
-        }
+//        networkService.loadMovieDetails(id: movieId) { [weak self] movieDetails in
+//            guard let movieDetails else {
+//                self?.viewState.value = .error
+//                self?.alertMessage.value = AlertMessage(
+//                    title: Constants.errorTitle,
+//                    description: Constants.errorMessage
+//                )
+//                return
+//            }
+//            self?.viewState.value = .data(movieDetails)
+//        }
     }
 
     func watchMovie() {

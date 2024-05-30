@@ -30,6 +30,8 @@ struct MovieDetails: Identifiable {
     let posterUrl: URL?
     /// Рейтинг на кинопоиске
     let kpRating: String
+    /// Рейтинг кинопоиска
+    let rating: Double
     /// Описание
     let description: String
     /// Информация о релизе
@@ -46,6 +48,7 @@ struct MovieDetails: Identifiable {
         name = movieDTO.name
         posterUrl = URL(string: movieDTO.poster.url)
         kpRating = "⭐ \(String(format: "%.1f", movieDTO.rating.kp))"
+        rating = movieDTO.rating.kp
         description = movieDTO.description
         releaseInfo = [
             String(movieDTO.year),

@@ -27,6 +27,14 @@ struct MoviePreview: Identifiable {
         }
         rating = movieDTO.rating?.kp ?? 0
     }
+
+    init(from movieDetails: MovieDetails) {
+        id = movieDetails.id
+        name = movieDetails.name
+        posterUrl = movieDetails.posterUrl
+        kpRating = movieDetails.kpRating
+        rating = movieDetails.rating
+    }
 }
 
 // MARK: - MoviePreview + Equatable

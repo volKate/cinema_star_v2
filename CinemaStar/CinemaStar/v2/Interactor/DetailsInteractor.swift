@@ -22,39 +22,69 @@ final class DetailsInteractor {
         self.loadImageService = loadImageService
     }
 
-//    func fetchCatalog() -> AnyPublisher<[MovieCard], NetworkError> {
-//        fetchMovies()
-//    }
-//
-//    private func fetchPoster(_ posterUrl: URL?) -> AnyPublisher<Image, Never> {
-//        guard let posterUrl else {
-//            return Just(Image(.posterPlaceholder))
-//                .eraseToAnyPublisher()
-//        }
-//
-//        return loadImageService.load(with: posterUrl)
-//            .tryMap { data in
-//                guard let uiImage = UIImage(data: data) else {
-//                    throw NetworkError.unknown
-//                }
-//                return Image(uiImage: uiImage)
-//            }
-//            .replaceError(with: Image(.posterPlaceholder))
-//            .eraseToAnyPublisher()
-//
-//    }
-//
-//    private func fetchMovies() -> AnyPublisher<[MovieCard], NetworkError> {
-//        networkService.loadMovies()
-//            .flatMap { $0.publisher }
-//            .flatMap { [unowned self] moviePreview in
-//                fetchPoster(moviePreview.posterUrl)
-//                    .map {
-//                        MovieCard(preview: moviePreview, poster: $0)
-//                    }
-//                    .eraseToAnyPublisher()
-//            }
-//            .collect()
-//            .eraseToAnyPublisher()
-//    }
+    func fetchDetails(id: Int) -> AnyPublisher<MovieDetailsViewData, NetworkError> {
+        fetch(id: id)
+    }
+
+    private func fetch(id: Int) -> AnyPublisher<MovieDetailsViewData, NetworkError> {
+        networkService.loadMovieDetails(id: id)
+            .flatMap { movieDetails in
+                movieDetails.actors.publisher
+                    .flatMap { [unowned self] actor in
+                        fetchImage(actor.photoUrl)
+                            .map {
+                                ActorCard(name: actor.name, photo: $0)
+                            }
+                            .eraseToAnyPublisher()
+                    }
+                    .collect()
+                    .flatMap { [unowned self] actors in
+                        fetchSimilarMovies(movieDetails.similarMovies ?? [])
+                            .flatMap { [unowned self] similarMovies in
+                                fetchImage(movieDetails.posterUrl)
+                                    .map {
+                                        MovieDetailsViewData(
+                                            movieDetails: movieDetails,
+                                            similarMovies: similarMovies,
+                                            poster: $0,
+                                            actors: actors
+                                        )
+                                    }
+                                    .eraseToAnyPublisher()
+                            }
+                    }
+            }
+            .eraseToAnyPublisher()
+    }
+
+    private func fetchSimilarMovies(_ movies: [MoviePreview]) -> AnyPublisher<[MovieCard], NetworkError> {
+        movies.publisher
+            .flatMap { [unowned self] moviePreview in
+                fetchImage(moviePreview.posterUrl)
+                    .map {
+                        MovieCard(preview: moviePreview, poster: $0)
+                    }
+                    .eraseToAnyPublisher()
+            }
+            .collect()
+            .setFailureType(to: NetworkError.self)
+            .eraseToAnyPublisher()
+    }
+
+    private func fetchImage(_ imageUrl: URL?) -> AnyPublisher<Image, Never> {
+        guard let imageUrl else {
+            return Just(Image(.posterPlaceholder))
+                .eraseToAnyPublisher()
+        }
+
+        return loadImageService.load(with: imageUrl)
+            .tryMap { data in
+                guard let uiImage = UIImage(data: data) else {
+                    throw NetworkError.unknown
+                }
+                return Image(uiImage: uiImage)
+            }
+            .replaceError(with: Image(.posterPlaceholder))
+            .eraseToAnyPublisher()
+    }
 }

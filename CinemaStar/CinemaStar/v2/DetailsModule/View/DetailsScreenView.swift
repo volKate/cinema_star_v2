@@ -15,12 +15,13 @@ struct DetailsScreenView: View {
 
     var body: some View {
         BackgroundView {
-            ScrollView {
-                contentView
-            }
+            contentView
         }
         .navigationBarBackButtonHidden(true)
         .toolbar(.hidden)
+        .onAppear {
+            presenter.fetchDetails()
+        }
     }
 
     @StateObject var presenter: DetailsPresenter
@@ -28,30 +29,21 @@ struct DetailsScreenView: View {
     private var contentView: some View {
         VStack {
             headerView
-            detailsContentView
-                .font(.system(size: 14))
-        }
-    }
 
-    private var detailsContentView: some View {
-        VStack(spacing: 16) {
-            MovieInfoView(
-                movieCard: MovieCard.createMock(),
-                onWatchTap: {}
-            )
-            .padding(.horizontal, 16)
-            DescriptionView(
-                description: Array(repeating: "This message ", count: 20).joined(),
-                releaseInfo: "2"
-            )
-            .foregroundStyle(.white)
-            .padding(.horizontal, 16)
-            
-            ActorsView(actors: ["name LongLast", "name1", "name2", "name3", "name4", "name5", "name6"])
-
-            languageView
-
-            RecommendationsView(movieCards: [MovieCard.createMock()])
+            switch presenter.viewState {
+            case .initial:
+                EmptyView()
+            case .loading:
+                Text("Loading...")
+            case .data(let movieDetails):
+                ScrollView {
+                    makeDetailsContentView(movieDetails)
+                }
+            case .noData:
+                Text("No data...")
+            case .error:
+                Text("error...")
+            }
         }
     }
 
@@ -66,12 +58,38 @@ struct DetailsScreenView: View {
         .padding(.horizontal, 16)
     }
 
-    private var languageView: some View {
+    private func makeDetailsContentView(_ viewData: MovieDetailsViewData) -> some View {
+        VStack(spacing: 16) {
+            MovieInfoView(
+                movieCard: MovieCard(
+                    preview: MoviePreview(from: viewData.movieDetails),
+                    poster: viewData.poster
+                ),
+                onWatchTap: {}
+            )
+            .padding(.horizontal, 16)
+            DescriptionView(
+                description: viewData.movieDetails.description,
+                releaseInfo: viewData.movieDetails.releaseInfo
+            )
+            .foregroundStyle(.white)
+            .padding(.horizontal, 16)
+
+            ActorsView(actors: viewData.actors)
+
+            makeLanguageView(viewData.movieDetails.language)
+
+            RecommendationsView(movieCards: viewData.similarMovies)
+        }
+        .font(.system(size: 14))
+    }
+
+    private func makeLanguageView(_ language: String?) -> some View {
         VStack(alignment: .leading, spacing: 4) {
             Text(Constants.languageTitle)
                 .fontWeight(.bold)
                 .foregroundStyle(.white)
-            Text("blabla")
+            Text(language ?? "")
                 .foregroundStyle(.black.opacity(0.41))
         }
         .padding(.horizontal)

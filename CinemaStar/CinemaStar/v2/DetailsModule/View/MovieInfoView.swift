@@ -34,6 +34,8 @@ struct MovieInfoView: View {
 
     private var posterView: some View {
         movieCard.poster
+            .resizable()
+            .aspectRatio(contentMode: .fill)
             .frame(width: 170, height: 200)
             .clipShape(RoundedRectangle(cornerRadius: 8))
     }
