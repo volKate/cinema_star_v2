@@ -35,8 +35,6 @@
 		DA16FC1D2C08ED23003171C8 /* ErrorMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA16FC1C2C08ED23003171C8 /* ErrorMessageView.swift */; };
 		DA16FC1F2C08F000003171C8 /* DetailsShimmerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA16FC1E2C08F000003171C8 /* DetailsShimmerView.swift */; };
 		DA16FC2F2C091D0B003171C8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA16FC2E2C091D0B003171C8 /* Localizable.strings */; };
-		DA16FC322C091F41003171C8 /* Strings+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA16FC312C091F41003171C8 /* Strings+Generated.swift */; };
-		DA16FC342C092280003171C8 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA16FC332C092280003171C8 /* Fonts.swift */; };
 		DAAAA9B12BD6E01A0009D60C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAAA9B02BD6E01A0009D60C /* AppDelegate.swift */; };
 		DAAAA9B32BD6E01A0009D60C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAAA9B22BD6E01A0009D60C /* SceneDelegate.swift */; };
 		DAAAA9BA2BD6E01E0009D60C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAAAA9B92BD6E01E0009D60C /* Images.xcassets */; };
@@ -82,6 +80,8 @@
 		DAD365E32BDD3F5B009A223D /* MockLoadImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD365E22BDD3F5B009A223D /* MockLoadImageService.swift */; };
 		DAD365E52BDD4586009A223D /* DetailsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD365E42BDD4586009A223D /* DetailsViewModelTests.swift */; };
 		DAD365E72BDD47A1009A223D /* MockStorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD365E62BDD47A1009A223D /* MockStorageService.swift */; };
+		DAF346992C0925020003AE29 /* Strings+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF346972C0925020003AE29 /* Strings+Generated.swift */; };
+		DAF3469A2C0925020003AE29 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF346982C0925020003AE29 /* Fonts.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -130,8 +130,6 @@
 		DA16FC1C2C08ED23003171C8 /* ErrorMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessageView.swift; sourceTree = "<group>"; };
 		DA16FC1E2C08F000003171C8 /* DetailsShimmerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsShimmerView.swift; sourceTree = "<group>"; };
 		DA16FC2D2C091D0B003171C8 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
-		DA16FC312C091F41003171C8 /* Strings+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Strings+Generated.swift"; sourceTree = "<group>"; };
-		DA16FC332C092280003171C8 /* Fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		DAAAA9AD2BD6E01A0009D60C /* CinemaStar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CinemaStar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAAAA9B02BD6E01A0009D60C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DAAAA9B22BD6E01A0009D60C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -179,6 +177,8 @@
 		DAD365E22BDD3F5B009A223D /* MockLoadImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLoadImageService.swift; sourceTree = "<group>"; };
 		DAD365E42BDD4586009A223D /* DetailsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModelTests.swift; sourceTree = "<group>"; };
 		DAD365E62BDD47A1009A223D /* MockStorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockStorageService.swift; sourceTree = "<group>"; };
+		DAF346972C0925020003AE29 /* Strings+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Strings+Generated.swift"; sourceTree = "<group>"; };
+		DAF346982C0925020003AE29 /* Fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -299,8 +299,8 @@
 		DA16FC302C091E48003171C8 /* Generated */ = {
 			isa = PBXGroup;
 			children = (
-				DA16FC332C092280003171C8 /* Fonts.swift */,
-				DA16FC312C091F41003171C8 /* Strings+Generated.swift */,
+				DAF346982C0925020003AE29 /* Fonts.swift */,
+				DAF346972C0925020003AE29 /* Strings+Generated.swift */,
 			);
 			path = Generated;
 			sourceTree = "<group>";
@@ -506,6 +506,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DAAAA9D72BD6E0200009D60C /* Build configuration list for PBXNativeTarget "CinemaStar" */;
 			buildPhases = (
+				DAF346962C0924CA0003AE29 /* Swiftgen */,
 				DAAAA9E62BD6E6DF0009D60C /* SwiftFormatter */,
 				DAAAA9E42BD6E4ED0009D60C /* SwiftLint */,
 				DAAAA9A92BD6E01A0009D60C /* Sources */,
@@ -679,6 +680,24 @@
 			shellPath = /bin/sh;
 			shellScript = "#if which swiftformat >/dev/null; then\n#  swiftformat .\n#else\n#  echo \"warning: SwiftFormat not installed, download from https://github.com/nicklockwood/SwiftFormat\"\n#fi\n";
 		};
+		DAF346962C0924CA0003AE29 /* Swiftgen */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Swiftgen;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nswiftgen\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -732,7 +751,7 @@
 				DA16FC0E2C08B2A3003171C8 /* DescriptionView.swift in Sources */,
 				DA16FBF42C063372003171C8 /* RootView.swift in Sources */,
 				DACF25A02BD80E5300D78225 /* MovieDetailsResource.swift in Sources */,
-				DA16FC322C091F41003171C8 /* Strings+Generated.swift in Sources */,
+				DAF346992C0925020003AE29 /* Strings+Generated.swift in Sources */,
 				DACF25922BD7EB3900D78225 /* MovieDetailsDTO.swift in Sources */,
 				DA16FC1B2C08ECC1003171C8 /* NoDataMessageView.swift in Sources */,
 				DA16FC0A2C08AAD3003171C8 /* NavHeaderView.swift in Sources */,
@@ -741,7 +760,7 @@
 				DACF259C2BD80A2E00D78225 /* APIResource.swift in Sources */,
 				DA16FBFE2C079149003171C8 /* DetailsScreenView.swift in Sources */,
 				DA16FBEC2C052403003171C8 /* CatalogPresenter.swift in Sources */,
-				DA16FC342C092280003171C8 /* Fonts.swift in Sources */,
+				DAF3469A2C0925020003AE29 /* Fonts.swift in Sources */,
 				DACF25882BD7E61700D78225 /* MoviePreviewDTO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
