@@ -235,12 +235,10 @@
 		DA16FBDC2C04FB1D003171C8 /* v2 */ = {
 			isa = PBXGroup;
 			children = (
+				DA16FC172C08DA37003171C8 /* CatalogModule */,
 				DA16FC072C08AAA9003171C8 /* DetailsModule */,
 				DA16FBDD2C04FB3A003171C8 /* View */,
-				DA16FBE52C05234B003171C8 /* Interactor */,
-				DA16FBE62C052373003171C8 /* Presenter */,
 				DA16FBE82C052387003171C8 /* Entity */,
-				DA16FBE72C05237F003171C8 /* Router */,
 				DA16FBF12C062E1B003171C8 /* AppScreenBuilder.swift */,
 				DA16FBF52C063404003171C8 /* NavigationService.swift */,
 				DA16FBFB2C07827A003171C8 /* Typealias.swift */,
@@ -252,7 +250,6 @@
 			isa = PBXGroup;
 			children = (
 				DA16FBE02C04FBBD003171C8 /* Shared */,
-				DA16FBDE2C04FB91003171C8 /* CatalogScreenView.swift */,
 				DA16FBF32C063372003171C8 /* RootView.swift */,
 			);
 			path = View;
@@ -268,39 +265,16 @@
 			path = Shared;
 			sourceTree = "<group>";
 		};
-		DA16FBE52C05234B003171C8 /* Interactor */ = {
-			isa = PBXGroup;
-			children = (
-				DA16FBE92C0523C7003171C8 /* CatalogInteractor.swift */,
-				DA16FC052C08A62E003171C8 /* DetailsInteractor.swift */,
-			);
-			path = Interactor;
-			sourceTree = "<group>";
-		};
-		DA16FBE62C052373003171C8 /* Presenter */ = {
-			isa = PBXGroup;
-			children = (
-				DA16FBEB2C052403003171C8 /* CatalogPresenter.swift */,
-				DA16FBFF2C079330003171C8 /* DetailsPresenter.swift */,
-			);
-			path = Presenter;
-			sourceTree = "<group>";
-		};
-		DA16FBE72C05237F003171C8 /* Router */ = {
-			isa = PBXGroup;
-			children = (
-				DA16FBF72C063655003171C8 /* CatalogRouter.swift */,
-				DA16FC032C08A5D2003171C8 /* DetailsRouter.swift */,
-			);
-			path = Router;
-			sourceTree = "<group>";
-		};
 		DA16FBE82C052387003171C8 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
 				DA16FBF92C075CA1003171C8 /* MovieCard.swift */,
 				DA16FC132C08CEDC003171C8 /* ActorCard.swift */,
 				DA16FC152C08D019003171C8 /* MovieDetailsViewData.swift */,
+				DACF25842BD7E57800D78225 /* DTO */,
+				DACF25812BD7E32900D78225 /* MoviePreview.swift */,
+				DACF258D2BD7E99000D78225 /* MovieDetails.swift */,
+				DACF25972BD7F04500D78225 /* Actor.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -308,6 +282,9 @@
 		DA16FC072C08AAA9003171C8 /* DetailsModule */ = {
 			isa = PBXGroup;
 			children = (
+				DA16FBFF2C079330003171C8 /* DetailsPresenter.swift */,
+				DA16FC032C08A5D2003171C8 /* DetailsRouter.swift */,
+				DA16FC052C08A62E003171C8 /* DetailsInteractor.swift */,
 				DA16FC082C08AAB5003171C8 /* View */,
 			);
 			path = DetailsModule;
@@ -324,6 +301,17 @@
 				DA16FC112C08C2A2003171C8 /* RecommendationsView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		DA16FC172C08DA37003171C8 /* CatalogModule */ = {
+			isa = PBXGroup;
+			children = (
+				DA16FBF72C063655003171C8 /* CatalogRouter.swift */,
+				DA16FBEB2C052403003171C8 /* CatalogPresenter.swift */,
+				DA16FBE92C0523C7003171C8 /* CatalogInteractor.swift */,
+				DA16FBDE2C04FB91003171C8 /* CatalogScreenView.swift */,
+			);
+			path = CatalogModule;
 			sourceTree = "<group>";
 		};
 		DAAAA9A42BD6E01A0009D60C = {
@@ -417,10 +405,6 @@
 		DACF25832BD7E3D500D78225 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				DACF25842BD7E57800D78225 /* DTO */,
-				DACF25812BD7E32900D78225 /* MoviePreview.swift */,
-				DACF258D2BD7E99000D78225 /* MovieDetails.swift */,
-				DACF25972BD7F04500D78225 /* Actor.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
