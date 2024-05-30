@@ -36,13 +36,11 @@ struct DetailsScreenView: View {
             case .loading:
                 Text("Loading...")
             case .data(let movieDetails):
-                ScrollView {
-                    makeDetailsContentView(movieDetails)
-                }
+                makeDetailsContentView(movieDetails)
             case .noData:
-                Text("No data...")
+                NoDataMessageView()
             case .error:
-                Text("error...")
+                ErrorMessageView()
             }
         }
     }
@@ -59,29 +57,31 @@ struct DetailsScreenView: View {
     }
 
     private func makeDetailsContentView(_ viewData: MovieDetailsViewData) -> some View {
-        VStack(spacing: 16) {
-            MovieInfoView(
-                movieCard: MovieCard(
-                    preview: MoviePreview(from: viewData.movieDetails),
-                    poster: viewData.poster
-                ),
-                onWatchTap: {}
-            )
-            .padding(.horizontal, 16)
-            DescriptionView(
-                description: viewData.movieDetails.description,
-                releaseInfo: viewData.movieDetails.releaseInfo
-            )
-            .foregroundStyle(.white)
-            .padding(.horizontal, 16)
+        ScrollView {
+            VStack(spacing: 16) {
+                MovieInfoView(
+                    movieCard: MovieCard(
+                        preview: MoviePreview(from: viewData.movieDetails),
+                        poster: viewData.poster
+                    ),
+                    onWatchTap: {}
+                )
+                .padding(.horizontal, 16)
+                DescriptionView(
+                    description: viewData.movieDetails.description,
+                    releaseInfo: viewData.movieDetails.releaseInfo
+                )
+                .foregroundStyle(.white)
+                .padding(.horizontal, 16)
 
-            ActorsView(actors: viewData.actors)
+                ActorsView(actors: viewData.actors)
 
-            makeLanguageView(viewData.movieDetails.language)
+                makeLanguageView(viewData.movieDetails.language)
 
-            RecommendationsView(movieCards: viewData.similarMovies)
+                RecommendationsView(movieCards: viewData.similarMovies)
+            }
+            .font(.system(size: 14))
         }
-        .font(.system(size: 14))
     }
 
     private func makeLanguageView(_ language: String?) -> some View {

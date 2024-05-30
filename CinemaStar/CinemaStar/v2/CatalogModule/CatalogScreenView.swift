@@ -36,9 +36,9 @@ struct CatalogScreenView: View {
         case .data(let movieCards):
             makeCatalogGridView(movieCards)
         case .noData:
-            noDataView
+            NoDataMessageView()
         case .error:
-            errorView
+            ErrorMessageView()
         }
     }
 
@@ -54,27 +54,6 @@ struct CatalogScreenView: View {
             .onDisappear {
                 isLoadingAnimating = false
             }
-    }
-
-    private var noDataView: some View {
-        makeMessageView(
-            iconName: "exclamationmark.magnifyingglass",
-            message: "Sorry\nNo Data Found"
-        )
-        .foregroundStyle(.white)
-        .frame(maxHeight: .infinity, alignment: .center)
-    }
-
-    private var errorView: some View {
-        makeMessageView(
-            iconName: "exclamationmark.triangle",
-            message: "Sorry\nAn error occured",
-            retryAction: {
-                presenter.fetchCatalog()
-            }
-        )
-        .foregroundStyle(.black)
-        .frame(maxHeight: .infinity, alignment: .center)
     }
 
     private var attributedHeaderText: AttributedString {
@@ -120,35 +99,6 @@ struct CatalogScreenView: View {
                 }
             }
             .padding(.horizontal, 16)
-        }
-    }
-
-    private func makeMessageView(
-        iconName: String,
-        message: String,
-        retryAction: VoidHandler? = nil
-    ) -> some View {
-        VStack(spacing: 12) {
-            Image(systemName: iconName)
-                .font(.largeTitle)
-            Text(message)
-                .multilineTextAlignment(.center)
-            if let action = retryAction {
-                Button(action: action, label: {
-                    Text("Retry")
-                        .padding(.vertical, 4)
-                        .padding(.horizontal, 12)
-                        .background {
-                            RoundedRectangle(cornerRadius: 8)
-                                .fill(.black.opacity(0.1))
-                        }
-                })
-            }
-        }
-        .padding()
-        .background {
-            RoundedRectangle(cornerRadius: 8)
-                .fill(.black.opacity(0.1))
         }
     }
 }
