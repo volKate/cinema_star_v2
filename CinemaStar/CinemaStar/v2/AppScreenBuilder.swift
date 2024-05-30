@@ -9,7 +9,9 @@ import SwiftUI
 
 /// Перечисление экранов
 enum AppScreen: Hashable {
+    /// Экран каталога фильмов
     case catalog
+    /// Экран деталей фильма
     case details(id: Int)
 }
 
@@ -35,15 +37,17 @@ final class AppScreenBuilder {
     }
 
     private func buildCatalog() -> some View {
-      let router = CatalogRouter(navigation: navigationService)
-      let interactor = CatalogInteractor(networkService: networkService, loadImageService: loadImageService)
-      let presenter = CatalogPresenter(router: router, interactor: interactor)
-      let view = CatalogScreenView(presenter: presenter)
-      return view
+        let router = CatalogRouter(navigation: navigationService)
+        let interactor = CatalogInteractor(networkService: networkService, loadImageService: loadImageService)
+        let presenter = CatalogPresenter(router: router, interactor: interactor)
+        let view = CatalogScreenView(presenter: presenter)
+        return view
     }
 
     private func buildDetails(id: Int) -> some View {
-        let presenter = DetailsPresenter(id: id)
+        let router = DetailsRouter(navigation: navigationService)
+        let interactor = DetailsInteractor(networkService: networkService, loadImageService: loadImageService)
+        let presenter = DetailsPresenter(id: id, router: router, interactor: interactor)
         let view = DetailsScreenView(presenter: presenter)
         return view
     }

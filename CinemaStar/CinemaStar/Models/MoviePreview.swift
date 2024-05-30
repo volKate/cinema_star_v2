@@ -60,7 +60,7 @@ extension MoviePreview {
         MoviePreview.mockCount += 1
         return MoviePreview(
             id: mockCount,
-            name: "",
+            name: "Test name",
             posterUrl: nil,
             kpRating: "",
             rating: 0
