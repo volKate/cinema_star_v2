@@ -10,5 +10,5 @@ import SwiftUI
 /// Сервис навигации
 final class NavigationService: ObservableObject {
     @Published var items: [AppScreen] = []
-//    @Published var alert: CustomAlert?
+    @Published var alert: AlertMessage?
 }

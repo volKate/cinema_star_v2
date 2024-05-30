@@ -67,7 +67,9 @@ struct DetailsScreenView: View {
                         preview: MoviePreview(from: viewData.movieDetails),
                         poster: viewData.poster
                     ),
-                    onWatchTap: {}
+                    onWatchTap: {
+                        presenter.watch()
+                    }
                 )
                 .padding(.horizontal, 16)
                 DescriptionView(

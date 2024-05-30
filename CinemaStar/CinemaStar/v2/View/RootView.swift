@@ -23,6 +23,25 @@ struct RootView: View {
                         fatalError()
                     }
                 }
+                .alert(
+                    navigationService.alert?.title ?? "",
+                    isPresented: Binding(
+                        get: {
+                            navigationService.alert != nil
+                        }, set: { isVisible in
+                            if !isVisible {
+                                navigationService.alert = nil
+                            }
+                        })
+                ) {
+                    if let alert = navigationService.alert {
+                        Button(alert.dismissButtonText) {}
+                    }
+                } message: {
+                    if let description = navigationService.alert?.description {
+                        Text(description)
+                    }
+                }
         }
     }
 }

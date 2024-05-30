@@ -18,4 +18,8 @@ final class DetailsRouter {
     func goBack() {
         navigation.items.removeLast()
     }
+
+    func showAlert(_ alert: AlertMessage) {
+        navigation.alert = alert
+    }
 }
