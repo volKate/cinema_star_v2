@@ -36,6 +36,7 @@
 		DA16FC1F2C08F000003171C8 /* DetailsShimmerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA16FC1E2C08F000003171C8 /* DetailsShimmerView.swift */; };
 		DA16FC2F2C091D0B003171C8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA16FC2E2C091D0B003171C8 /* Localizable.strings */; };
 		DA16FC322C091F41003171C8 /* Strings+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA16FC312C091F41003171C8 /* Strings+Generated.swift */; };
+		DA16FC342C092280003171C8 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA16FC332C092280003171C8 /* Fonts.swift */; };
 		DAAAA9B12BD6E01A0009D60C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAAA9B02BD6E01A0009D60C /* AppDelegate.swift */; };
 		DAAAA9B32BD6E01A0009D60C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAAA9B22BD6E01A0009D60C /* SceneDelegate.swift */; };
 		DAAAA9BA2BD6E01E0009D60C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAAAA9B92BD6E01E0009D60C /* Images.xcassets */; };
@@ -130,6 +131,7 @@
 		DA16FC1E2C08F000003171C8 /* DetailsShimmerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsShimmerView.swift; sourceTree = "<group>"; };
 		DA16FC2D2C091D0B003171C8 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DA16FC312C091F41003171C8 /* Strings+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Strings+Generated.swift"; sourceTree = "<group>"; };
+		DA16FC332C092280003171C8 /* Fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		DAAAA9AD2BD6E01A0009D60C /* CinemaStar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CinemaStar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAAAA9B02BD6E01A0009D60C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DAAAA9B22BD6E01A0009D60C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -297,6 +299,7 @@
 		DA16FC302C091E48003171C8 /* Generated */ = {
 			isa = PBXGroup;
 			children = (
+				DA16FC332C092280003171C8 /* Fonts.swift */,
 				DA16FC312C091F41003171C8 /* Strings+Generated.swift */,
 			);
 			path = Generated;
@@ -738,6 +741,7 @@
 				DACF259C2BD80A2E00D78225 /* APIResource.swift in Sources */,
 				DA16FBFE2C079149003171C8 /* DetailsScreenView.swift in Sources */,
 				DA16FBEC2C052403003171C8 /* CatalogPresenter.swift in Sources */,
+				DA16FC342C092280003171C8 /* Fonts.swift in Sources */,
 				DACF25882BD7E61700D78225 /* MoviePreviewDTO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

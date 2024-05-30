@@ -49,6 +49,11 @@
 #     - templateName: segues-swift5
 #       output: IB-Segues+Generated.swift
 
+ fonts:
+    inputs: ./fonts
+    outputs:
+        templateName: swift5
+        output: Fonts.swift
 
 ## There are other parsers available for you to use depending on your needs, for example:
 ##  - `fonts` (if you have custom ttf/ttc font files)
