@@ -9,10 +9,6 @@ import SwiftUI
 
 /// Шапка деталей
 struct MovieInfoView: View {
-    private enum Constants {
-        static let watchButtonText = "Смотреть"
-    }
-
     let movieCard: MovieCard
     let onWatchTap: VoidHandler
 
@@ -51,7 +47,7 @@ struct MovieInfoView: View {
     }
 
     private var watchButton: some View {
-        Button(Constants.watchButtonText, action: onWatchTap)
+        Button(Local.Details.Button.watch, action: onWatchTap)
             .frame(maxWidth: .infinity)
             .padding(.vertical, 14)
             .background {

@@ -9,11 +9,6 @@ import Combine
 import Foundation
 
 final class DetailsPresenter: ObservableObject {
-    private enum Constants {
-        static let inDevelopmentTitle = "Упс!"
-        static let inDevelopmentMessage = "Функционал в разработке :("
-    }
-
     @Published private(set) var id: Int
     @Published private(set) var isFavorite = false
     @Published private(set) var viewState: ViewState<MovieDetailsViewData> = .initial
@@ -67,8 +62,8 @@ final class DetailsPresenter: ObservableObject {
     func watch() {
         router.showAlert(
             AlertMessage(
-                title: Constants.inDevelopmentTitle,
-                description: Constants.inDevelopmentMessage
+                title: Local.Common.inDevelopmentTitle,
+                description: Local.Common.inDevelopmentMessage
             )
         )
     }

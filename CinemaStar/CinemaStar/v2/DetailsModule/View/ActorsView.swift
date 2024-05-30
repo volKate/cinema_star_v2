@@ -9,10 +9,6 @@ import SwiftUI
 
 /// Инормация об актерах
 struct ActorsView: View {
-    private enum Constants {
-        static let actorsTitle = "Актеры и съемочная группа "
-    }
-
     let actors: [ActorCard]
 
     var body: some View {
@@ -22,7 +18,7 @@ struct ActorsView: View {
 
     private var contentView: some View {
         VStack(alignment: .leading) {
-            Text(Constants.actorsTitle)
+            Text(Local.Details.Title.actors)
                 .font(.interBold(ofSize: 14))
                 .padding(.horizontal, 16)
 

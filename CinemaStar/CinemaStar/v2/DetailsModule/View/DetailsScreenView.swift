@@ -9,10 +9,6 @@ import SwiftUI
 
 /// View деталей о фильме
 struct DetailsScreenView: View {
-    private enum Constants {
-        static let languageTitle = "Язык"
-    }
-
     var body: some View {
         BackgroundView {
             contentView
@@ -95,7 +91,7 @@ struct DetailsScreenView: View {
 
     private func makeLanguageView(_ language: String) -> some View {
         VStack(alignment: .leading, spacing: 4) {
-            Text(Constants.languageTitle)
+            Text(Local.Details.Title.language)
                 .fontWeight(.bold)
                 .foregroundStyle(.white)
             Text(language)

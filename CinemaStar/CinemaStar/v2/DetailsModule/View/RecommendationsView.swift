@@ -9,10 +9,6 @@ import SwiftUI
 
 /// Рекоммендации похожих фильмов
 struct RecommendationsView: View {
-    private enum Constants {
-        static let recommendationsTitle = "Смотрите также"
-    }
-
     let movieCards: [MovieCard]
 
     var body: some View {
@@ -21,7 +17,7 @@ struct RecommendationsView: View {
 
     private var contentView: some View {
         VStack(alignment: .leading, spacing: 8) {
-            Text(Constants.recommendationsTitle)
+            Text(Local.Details.Title.recommendations)
                 .fontWeight(.bold)
                 .padding(.horizontal)
             recommendationsGrid

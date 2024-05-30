@@ -13,7 +13,6 @@ struct NavHeaderView: View {
         static let backIconName = "chevron.left"
         static let heartImageName = "heart"
         static let heartFillImageName = "heart.fill"
-        static let watchButtonText = "Смотреть"
     }
 
     var body: some View {

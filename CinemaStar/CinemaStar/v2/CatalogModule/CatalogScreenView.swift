@@ -5,11 +5,6 @@ import SwiftUI
 
 /// View каталога фильмов
 struct CatalogScreenView: View {
-    private enum Constants {
-        static let header = "Смотри исторические\nфильмы на "
-        static let logoText = "CINEMA STAR"
-    }
-
     var body: some View {
         BackgroundView {
             VStack {
@@ -58,10 +53,10 @@ struct CatalogScreenView: View {
     }
 
     private var attributedHeaderText: AttributedString {
-        var logoText = AttributedString(Constants.logoText)
+        var logoText = AttributedString(Local.Catalog.logo)
         logoText.font = .interBlack(ofSize: 20)
 
-        return AttributedString(Constants.header) + logoText
+        return AttributedString(Local.Catalog.title) + logoText
     }
 
     private var headerTextView: some View {
