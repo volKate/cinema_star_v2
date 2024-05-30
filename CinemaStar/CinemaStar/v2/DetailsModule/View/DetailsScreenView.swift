@@ -34,8 +34,7 @@ struct DetailsScreenView: View {
             case .initial:
                 EmptyView()
             case .loading:
-
-                    DetailsShimmerView()
+                DetailsShimmerView()
             case .data(let movieDetails):
                 makeDetailsContentView(movieDetails)
             case .noData:
@@ -48,9 +47,11 @@ struct DetailsScreenView: View {
 
     private var headerView: some View {
         NavHeaderView(
-            isFavorite: $presenter.isFavorite,
+            isFavorite: presenter.isFavorite,
             onBackTap: {
                 presenter.goBack()
+            }, onHeartTap: {
+                presenter.toggleIsFavorite()
             }
         )
         .foregroundStyle(.white)
@@ -77,20 +78,24 @@ struct DetailsScreenView: View {
 
                 ActorsView(actors: viewData.actors)
 
-                makeLanguageView(viewData.movieDetails.language)
+                if let language = viewData.movieDetails.language {
+                    makeLanguageView(language)
+                }
 
-                RecommendationsView(movieCards: viewData.similarMovies)
+                if !viewData.similarMovies.isEmpty {
+                    RecommendationsView(movieCards: viewData.similarMovies)
+                }
             }
             .font(.system(size: 14))
         }
     }
 
-    private func makeLanguageView(_ language: String?) -> some View {
+    private func makeLanguageView(_ language: String) -> some View {
         VStack(alignment: .leading, spacing: 4) {
             Text(Constants.languageTitle)
                 .fontWeight(.bold)
                 .foregroundStyle(.white)
-            Text(language ?? "")
+            Text(language)
                 .foregroundStyle(.black.opacity(0.41))
         }
         .padding(.horizontal)

@@ -22,15 +22,18 @@ struct NavHeaderView: View {
                 Image(systemName: Constants.backIconName)
             }
             Spacer()
-            Image(systemName: isFavorite ? Constants.heartFillImageName : Constants.heartImageName)
+            Button(action: onHeartTap) {
+                Image(systemName: isFavorite ? Constants.heartFillImageName : Constants.heartImageName)
+            }
         }
         .padding(.vertical)
     }
 
-    @Binding var isFavorite: Bool
+    let isFavorite: Bool
     let onBackTap: VoidHandler
+    let onHeartTap: VoidHandler
 }
 
 #Preview {
-    NavHeaderView(isFavorite: .constant(false), onBackTap: {})
+    NavHeaderView(isFavorite: false, onBackTap: {}, onHeartTap: {})
 }

@@ -21,6 +21,7 @@ final class AppScreenBuilder {
     private let navigationService = NavigationService()
     private let networkService = NetworkService()
     private let loadImageService = LoadImageProxy(service: LoadImageService())
+    private let storageService = UserDefaultsStorage()
 
     func createRoot() -> some View {
         RootView(navigationService: navigationService, appScreenBuilder: self)
@@ -46,7 +47,11 @@ final class AppScreenBuilder {
 
     private func buildDetails(id: Int) -> some View {
         let router = DetailsRouter(navigation: navigationService)
-        let interactor = DetailsInteractor(networkService: networkService, loadImageService: loadImageService)
+        let interactor = DetailsInteractor(
+            networkService: networkService,
+            loadImageService: loadImageService,
+            storageService: storageService
+        )
         let presenter = DetailsPresenter(id: id, router: router, interactor: interactor)
         let view = DetailsScreenView(presenter: presenter)
         return view

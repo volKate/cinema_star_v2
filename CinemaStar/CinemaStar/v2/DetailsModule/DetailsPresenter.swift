@@ -9,9 +9,9 @@ import Combine
 import Foundation
 
 final class DetailsPresenter: ObservableObject {
-    @Published var id: Int
-    @Published var isFavorite = false
-    @Published var viewState: ViewState<MovieDetailsViewData> = .initial
+    @Published private(set) var id: Int
+    @Published private(set) var isFavorite = false
+    @Published private(set) var viewState: ViewState<MovieDetailsViewData> = .initial
 
     private let router: DetailsRouter
     private let interactor: DetailsInteractor
@@ -21,6 +21,7 @@ final class DetailsPresenter: ObservableObject {
         self.id = id
         self.router = router
         self.interactor = interactor
+        syncIsFavorite()
     }
 
     func fetchDetails() {
@@ -47,5 +48,20 @@ final class DetailsPresenter: ObservableObject {
 
     func goBack() {
         router.goBack()
+    }
+
+    func toggleIsFavorite() {
+        isFavorite.toggle()
+        do {
+            try interactor.saveFavorite(isFavorite: isFavorite, id: id)
+        } catch {
+            isFavorite.toggle()
+        }
+    }
+
+    private func syncIsFavorite() {
+        if let isFavoriteSavedValue = try? interactor.getIsFavorite(id: id) {
+            isFavorite = isFavoriteSavedValue
+        }
     }
 }

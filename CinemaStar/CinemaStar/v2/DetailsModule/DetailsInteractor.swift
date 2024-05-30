@@ -9,17 +9,28 @@ import Combine
 import Foundation
 import SwiftUI
 
-/// Интерактор каталога
+/// Интерактор деталей
 final class DetailsInteractor {
     private let networkService: NetworkServiceProtocol
     private let loadImageService: LoadImageServiceProtocol
+    private let storageService: Storage
 
     init(
         networkService: NetworkServiceProtocol,
-        loadImageService: LoadImageServiceProtocol
+        loadImageService: LoadImageServiceProtocol,
+        storageService: Storage
     ) {
         self.networkService = networkService
         self.loadImageService = loadImageService
+        self.storageService = storageService
+    }
+
+    func getIsFavorite(id: Int) throws -> Bool {
+        try storageService.value(forKey: String(id))
+    }
+
+    func saveFavorite(isFavorite: Bool, id: Int) throws {
+        try storageService.save(isFavorite, forKey: String(id))
     }
 
     func fetchDetails(id: Int) -> AnyPublisher<MovieDetailsViewData, NetworkError> {
