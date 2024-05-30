@@ -32,15 +32,15 @@ final class CatalogCoordinator: CatalogCoordinatorProtocol {
     }
 
     func openMovieDetails(id: Int) {
-        let detailsViewModel = DetailsViewModel(
-            movieId: id,
-            coordinator: self,
-            storageService: UserDefaultsStorage(),
-            loadImageService: loadImageService,
-            networkService: networkService
-        )
-        let detailsViewController = DetailsViewController(detailsViewModel: detailsViewModel)
-        navigationController?.pushViewController(detailsViewController, animated: true)
+//        let detailsViewModel = DetailsViewModel(
+//            movieId: id,
+//            coordinator: self,
+//            storageService: UserDefaultsStorage(),
+//            loadImageService: loadImageService,
+//            networkService: networkService
+//        )
+//        let detailsViewController = DetailsViewController(detailsViewModel: detailsViewModel)
+//        navigationController?.pushViewController(detailsViewController, animated: true)
     }
 
     func goBack() {

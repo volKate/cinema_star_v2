@@ -16,14 +16,6 @@ final class ImageRequest {
 // MARK: - ImageRequest + NetworkRequest
 
 extension ImageRequest: NetworkRequest {
-    func decode(_ data: Data) -> Data? {
-        data
-    }
-
-    func execute(withCompletion completion: @escaping (Data?) -> Void) {
-        load(url, withCompletion: completion)
-    }
-
     func execute() -> AnyPublisher<Data, NetworkError> {
         load(url)
     }
