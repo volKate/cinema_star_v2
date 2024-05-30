@@ -7,17 +7,15 @@ import Foundation
 
 /// Мок сервиса загрузки данных сети
 final class MockNetworkService: NetworkServiceProtocol {
+    func loadMovieDetails(id: Int) -> Future<CinemaStar.MovieDetails, CinemaStar.NetworkError> {
+        Future { promise in
+            promise(.failure(.unknown))
+        }
+    }
+    
     var shouldResultWithError = false
     let expectedMovies: [MoviePreview] = [MockObjects.mockMoviePreview]
     let expectedMovieDetails: MovieDetails = MockObjects.mockMovieDetails
-
-    func loadMovieDetails(id: Int, completion: @escaping (MovieDetails?) -> Void) {
-        if shouldResultWithError {
-            completion(nil)
-            return
-        }
-        completion(expectedMovieDetails)
-    }
 
     func loadMovies(completion: @escaping ([MoviePreview]?) -> Void) {
         if shouldResultWithError {
