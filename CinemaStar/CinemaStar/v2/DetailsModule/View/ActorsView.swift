@@ -23,7 +23,7 @@ struct ActorsView: View {
     private var contentView: some View {
         VStack(alignment: .leading) {
             Text(Constants.actorsTitle)
-                .font(.system(size: 14, weight: .bold))
+                .font(.interBold(ofSize: 14))
                 .padding(.horizontal, 16)
 
             actorsGridView
@@ -53,7 +53,7 @@ struct ActorsView: View {
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 46, height: 73)
             Text(actor.name)
-                .font(.system(size: 8))
+                .font(.inter(ofSize: 8))
                 .multilineTextAlignment(.center)
                 .lineLimit(2)
         }

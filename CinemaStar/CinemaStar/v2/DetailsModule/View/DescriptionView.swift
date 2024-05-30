@@ -35,7 +35,7 @@ struct DescriptionView: View {
         HStack(alignment: .lastTextBaseline) {
             Text(description)
                 .lineLimit(isDescriptionExpanded ? nil : 4)
-                .font(.system(size: 14))
+                .font(.inter(ofSize: 14))
 
             expandButtonView
         }
@@ -52,13 +52,13 @@ struct DescriptionView: View {
                     Constants.arrowUpIconName :
                     Constants.arrowDownIconName
             )
-            .font(.system(size: 14))
+            .font(.inter(ofSize: 14))
         }
     }
 
     private var releaseView: some View {
         Text(releaseInfo)
-            .font(.system(size: 14))
+            .font(.inter(ofSize: 14))
             .foregroundStyle(.black.opacity(0.41))
     }
 }

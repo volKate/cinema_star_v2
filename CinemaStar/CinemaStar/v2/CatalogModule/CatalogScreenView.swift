@@ -16,6 +16,7 @@ struct CatalogScreenView: View {
                 headerTextView
                 contentView
             }
+            .font(.inter(ofSize: 16))
             .frame(maxHeight: .infinity, alignment: .top)
         }
         .onAppear {
@@ -58,14 +59,14 @@ struct CatalogScreenView: View {
 
     private var attributedHeaderText: AttributedString {
         var logoText = AttributedString(Constants.logoText)
-        logoText.font = .system(size: 20, weight: .heavy)
+        logoText.font = .interBlack(ofSize: 20)
 
         return AttributedString(Constants.header) + logoText
     }
 
     private var headerTextView: some View {
         Text(attributedHeaderText)
-            .font(.system(size: 20))
+            .font(.inter(ofSize: 20))
             .padding(.top, 20)
             .padding(.horizontal, 16)
             .padding(.bottom, 14)

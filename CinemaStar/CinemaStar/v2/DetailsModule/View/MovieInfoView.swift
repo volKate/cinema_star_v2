@@ -43,7 +43,7 @@ struct MovieInfoView: View {
     private var movieInfoView: some View {
         VStack(alignment: .leading) {
             Text(movieCard.preview.name)
-                .font(.system(size: 18, weight: .bold))
+                .font(.interBold(ofSize: 18))
 
             RatingView(movieCard.preview.rating)
         }

@@ -16,6 +16,7 @@ struct DetailsScreenView: View {
     var body: some View {
         BackgroundView {
             contentView
+                .font(.inter(ofSize: 16))
         }
         .navigationBarBackButtonHidden(true)
         .toolbar(.hidden)
@@ -86,7 +87,7 @@ struct DetailsScreenView: View {
                     RecommendationsView(movieCards: viewData.similarMovies)
                 }
             }
-            .font(.system(size: 14))
+            .font(.inter(ofSize: 14))
         }
     }
 
