@@ -71,7 +71,7 @@
 		DACF25C82BD849E000D78225 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACF25C72BD849E000D78225 /* Storage.swift */; };
 		DACF25CA2BD84B4100D78225 /* UserDefaultsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACF25C92BD84B4100D78225 /* UserDefaultsStorage.swift */; };
 		DACF25D02BD99B1300D78225 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = DACF25CF2BD99B1300D78225 /* SnapKit */; };
-		DACF25D82BDAD8FF00D78225 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACF25D72BDAD8FF00D78225 /* UIFont+Extension.swift */; };
+		DACF25D82BDAD8FF00D78225 /* Font+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACF25D72BDAD8FF00D78225 /* Font+Extension.swift */; };
 		DACF25E22BDAF84400D78225 /* LoadImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACF25E12BDAF84400D78225 /* LoadImageService.swift */; };
 		DAD365D62BDC1746009A223D /* AlertMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD365D52BDC1746009A223D /* AlertMessage.swift */; };
 		DAD365DA2BDC340D009A223D /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD365D92BDC340D009A223D /* NetworkService.swift */; };
@@ -167,7 +167,7 @@
 		DACF25C12BD83FF200D78225 /* TokenStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenStorage.swift; sourceTree = "<group>"; };
 		DACF25C72BD849E000D78225 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		DACF25C92BD84B4100D78225 /* UserDefaultsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsStorage.swift; sourceTree = "<group>"; };
-		DACF25D72BDAD8FF00D78225 /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
+		DACF25D72BDAD8FF00D78225 /* Font+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Extension.swift"; sourceTree = "<group>"; };
 		DACF25E12BDAF84400D78225 /* LoadImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadImageService.swift; sourceTree = "<group>"; };
 		DAD365D52BDC1746009A223D /* AlertMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertMessage.swift; sourceTree = "<group>"; };
 		DAD365D92BDC340D009A223D /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
@@ -480,7 +480,7 @@
 		DACF25D62BDAD8E600D78225 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				DACF25D72BDAD8FF00D78225 /* UIFont+Extension.swift */,
+				DACF25D72BDAD8FF00D78225 /* Font+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -715,7 +715,7 @@
 				DACF258C2BD7E65400D78225 /* RatingDTO.swift in Sources */,
 				DACF259E2BD80CD800D78225 /* MoviesResource.swift in Sources */,
 				DA16FBF22C062E1B003171C8 /* AppScreenBuilder.swift in Sources */,
-				DACF25D82BDAD8FF00D78225 /* UIFont+Extension.swift in Sources */,
+				DACF25D82BDAD8FF00D78225 /* Font+Extension.swift in Sources */,
 				DACF25E22BDAF84400D78225 /* LoadImageService.swift in Sources */,
 				DA16FC162C08D019003171C8 /* MovieDetailsViewData.swift in Sources */,
 				DAD365D62BDC1746009A223D /* AlertMessage.swift in Sources */,
