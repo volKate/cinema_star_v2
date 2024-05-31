@@ -9,12 +9,9 @@ import Foundation
 final class MockLoadImageService: LoadImageServiceProtocol {
     private(set) var loadImageCallsWithUrls: [URL] = []
 
-    func load(with url: URL, completion: @escaping (Data?) -> Void) {
-        loadImageCallsWithUrls.append(url)
-    }
-
     func load(with url: URL) -> Future<Data, CinemaStar.NetworkError> {
-        Future { promise in
+        loadImageCallsWithUrls.append(url)
+        return Future { promise in
             promise(.failure(.unknown))
         }
     }
