@@ -20,6 +20,7 @@
         <attribute name="rating" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="releaseInfo" optional="YES" attributeType="String"/>
         <relationship name="actors" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ActorEntity" inverseName="movieDetails" inverseEntity="ActorEntity"/>
+        <relationship name="similarMovies" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SimilarMovieEntity" inverseName="movieDetails" inverseEntity="SimilarMovieEntity"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
                 <constraint value="id"/>
@@ -36,5 +37,8 @@
                 <constraint value="id"/>
             </uniquenessConstraint>
         </uniquenessConstraints>
+    </entity>
+    <entity name="SimilarMovieEntity" representedClassName="SimilarMovieEntity" parentEntity="MovieEntity" syncable="YES" codeGenerationType="class">
+        <relationship name="movieDetails" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MovieDetailsEntity" inverseName="similarMovies" inverseEntity="MovieDetailsEntity"/>
     </entity>
 </model>

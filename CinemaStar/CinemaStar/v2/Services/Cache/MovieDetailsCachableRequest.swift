@@ -35,13 +35,13 @@ final class MovieDetailsCachableRequest: CachableRequestProtocol {
         return MovieDetails(
             id: Int(entity.id),
             name: entity.name ?? "",
-            posterUrl: entity.posterUrl != nil ? URL(string: entity.posterUrl ?? "") : nil,
+            posterUrl: urlOrNil(entity.posterUrl),
             rating: entity.rating,
             description: entity.desc ?? "",
             releaseInfo: entity.releaseInfo ?? "",
             actors: (entity.actors?.allObjects as? [ActorEntity] ?? []).map(mapActorEntityToModel),
             language: entity.language,
-            similarMovies: []
+            similarMovies: (entity.similarMovies?.allObjects as? [SimilarMovieEntity] ?? []).map(mapMovieEntityToModel)
         )
     }
 
@@ -52,8 +52,17 @@ final class MovieDetailsCachableRequest: CachableRequestProtocol {
     private func mapActorEntityToModel(_ entity: ActorEntity) -> Actor {
         Actor(
             id: Int(entity.id),
-            photoUrl: entity.photoUrl != nil ? URL(string: entity.photoUrl ?? "") : nil,
+            photoUrl: urlOrNil(entity.photoUrl),
             name: entity.name ?? ""
+        )
+    }
+
+    private func mapMovieEntityToModel(_ entity: SimilarMovieEntity) -> MoviePreview {
+        MoviePreview(
+            id: Int(entity.id),
+            name: entity.name ?? "",
+            posterUrl: urlOrNil(entity.posterUrl),
+            rating: 0
         )
     }
 
@@ -78,7 +87,21 @@ final class MovieDetailsCachableRequest: CachableRequestProtocol {
             actorEntity.photoUrl = actor.photoUrl?.absoluteString
             actorsEntitiesSet.insert(actorEntity)
         }
-
         movieEntity.actors = NSSet(set: actorsEntitiesSet)
+
+        var similarMoviesEntitiesSet: Set<SimilarMovieEntity> = []
+        for movie in movieDetails.similarMovies ?? [] {
+            let entity = SimilarMovieEntity(context: context)
+            entity.id = Int64(movie.id)
+            entity.name = movie.name
+            entity.posterUrl = movie.posterUrl?.absoluteString
+            similarMoviesEntitiesSet.insert(entity)
+        }
+        movieEntity.similarMovies = NSSet(set: similarMoviesEntitiesSet)
+    }
+
+    private func urlOrNil(_ urlString: String?) -> URL? {
+        guard let urlString else { return nil }
+        return URL(string: urlString)
     }
 }
