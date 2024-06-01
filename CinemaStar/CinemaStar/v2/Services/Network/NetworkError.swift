@@ -15,4 +15,6 @@ enum NetworkError: Error {
     case responseError
     /// Ошибка парсинга
     case parsing
+    /// Ошибка поделючения к сети
+    case connection
 }
