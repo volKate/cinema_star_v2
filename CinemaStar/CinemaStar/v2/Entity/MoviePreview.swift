@@ -11,20 +11,25 @@ struct MoviePreview: Identifiable {
     let name: String
     /// Url постера
     let posterUrl: URL?
-    /// Рейтинг на кинопоиске
-    let kpRating: String
     /// Рейтинг кинопоиска
     let rating: Double
+
+    init(
+        id: Int,
+        name: String,
+        posterUrl: URL?,
+        rating: Double
+    ) {
+        self.id = id
+        self.name = name
+        self.posterUrl = posterUrl
+        self.rating = rating
+    }
 
     init(fromDTO movieDTO: MoviePreviewDTO) {
         id = movieDTO.id
         name = movieDTO.name
         posterUrl = URL(string: movieDTO.poster.url)
-        if let rating = movieDTO.rating?.kp {
-            kpRating = "⭐ \(String(format: "%.1f", rating))"
-        } else {
-            kpRating = ""
-        }
         rating = movieDTO.rating?.kp ?? 0
     }
 
@@ -32,7 +37,6 @@ struct MoviePreview: Identifiable {
         id = movieDetails.id
         name = movieDetails.name
         posterUrl = movieDetails.posterUrl
-        kpRating = movieDetails.kpRating
         rating = movieDetails.rating
     }
 }
@@ -48,20 +52,6 @@ extension MoviePreview: Equatable {
 // MARK: - Mock
 
 extension MoviePreview {
-    fileprivate init(
-        id: Int,
-        name: String,
-        posterUrl: URL?,
-        kpRating: String,
-        rating: Double
-    ) {
-        self.id = id
-        self.name = name
-        self.posterUrl = posterUrl
-        self.kpRating = kpRating
-        self.rating = rating
-    }
-    
     private static var mockCount = 0
 
     static func createMock() -> MoviePreview {
@@ -70,7 +60,6 @@ extension MoviePreview {
             id: mockCount,
             name: "Test name",
             posterUrl: nil,
-            kpRating: "",
             rating: 0
         )
     }

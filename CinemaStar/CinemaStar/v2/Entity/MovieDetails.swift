@@ -28,8 +28,6 @@ struct MovieDetails: Identifiable {
     let name: String
     /// Url постера
     let posterUrl: URL?
-    /// Рейтинг на кинопоиске
-    let kpRating: String
     /// Рейтинг кинопоиска
     let rating: Double
     /// Описание
@@ -43,11 +41,32 @@ struct MovieDetails: Identifiable {
     /// Похожие фильмы
     let similarMovies: [MoviePreview]?
 
+    init(
+        id: Int,
+        name: String,
+        posterUrl: URL?,
+        rating: Double,
+        description: String,
+        releaseInfo: String,
+        actors: [Actor],
+        language: String?,
+        similarMovies: [MoviePreview]?
+    ) {
+        self.id = id
+        self.name = name
+        self.posterUrl = posterUrl
+        self.rating = rating
+        self.description = description
+        self.releaseInfo = releaseInfo
+        self.actors = actors
+        self.language = language
+        self.similarMovies = similarMovies
+    }
+
     init(fromDTO movieDTO: MovieDetailsDTO) {
         id = movieDTO.id
         name = movieDTO.name
         posterUrl = URL(string: movieDTO.poster.url)
-        kpRating = "⭐ \(String(format: "%.1f", movieDTO.rating.kp))"
         rating = movieDTO.rating.kp
         description = movieDTO.description
         releaseInfo = [
