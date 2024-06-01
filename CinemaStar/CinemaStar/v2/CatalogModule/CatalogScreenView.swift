@@ -29,7 +29,7 @@ struct CatalogScreenView: View {
             EmptyView()
         case .loading:
             loadingView
-        case .data(let movieCards):
+        case let .data(movieCards):
             makeCatalogGridView(movieCards)
         case .noData:
             NoDataMessageView()
@@ -74,7 +74,7 @@ struct CatalogScreenView: View {
 
     private let gridColumns = [
         GridItem(.flexible(), spacing: 18, alignment: .top),
-        GridItem(.flexible(), spacing: 18, alignment: .top)
+        GridItem(.flexible(), spacing: 18, alignment: .top),
     ]
 
     private func makeCatalogGridView(_ movieCards: [MovieCard], isMock: Bool = false) -> some View {

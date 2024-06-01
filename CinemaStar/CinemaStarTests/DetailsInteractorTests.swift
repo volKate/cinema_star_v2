@@ -71,7 +71,7 @@ final class DetailsInteractorTests: XCTestCase {
                 XCTAssert(mockLoadImageService.loadImageCallsWithUrls.contains(firstActorPhotoUrl))
                 XCTAssert(mockLoadImageService.loadImageCallsWithUrls.contains(firstRecomPosterUrl))
                 expectation.fulfill()
-            } receiveValue: {_ in }
+            } receiveValue: { _ in }
 
         waitForExpectations(timeout: 3)
     }
@@ -82,7 +82,7 @@ final class DetailsInteractorTests: XCTestCase {
         requestCancellable = detailsInteractor?.fetchDetails(id: movieId)
             .receive(on: RunLoop.main)
             .sink { completion in
-                if case .failure(let error) = completion {
+                if case let .failure(error) = completion {
                     XCTAssertEqual(error, .unknown)
                     expectation.fulfill()
                 }

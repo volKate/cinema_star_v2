@@ -10,11 +10,10 @@ import SwiftUI
 
 /// Презентер каталога
 final class CatalogPresenter: ObservableObject {
-
     @Published var viewState: ViewState<[MovieCard]> = .initial
     @Published private(set) var loadingStubCards: [MovieCard] = {
         var cards: [MovieCard] = []
-        for _ in 0...7 {
+        for _ in 0 ... 7 {
             cards.append(MovieCard.createMock())
         }
         return cards

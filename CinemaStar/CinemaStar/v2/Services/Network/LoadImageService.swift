@@ -19,7 +19,7 @@ final class LoadImageService: LoadImageServiceProtocol {
             let request = ImageRequest(url: url)
             request.execute()
                 .sink { completion in
-                    if case let .failure(err)  = completion {
+                    if case let .failure(err) = completion {
                         promise(.failure(err))
                     }
                 } receiveValue: { data in

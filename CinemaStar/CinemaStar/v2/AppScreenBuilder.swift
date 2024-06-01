@@ -1,5 +1,5 @@
 //
-//  AppViewBuilder.swift
+//  AppScreenBuilder.swift
 //  CinemaStar
 //
 //  Created by Kate Volkova on 28.05.24.
@@ -32,7 +32,7 @@ final class AppScreenBuilder {
         switch view {
         case .catalog:
             buildCatalog()
-        case .details(let id):
+        case let .details(id):
             buildDetails(id: id)
         }
     }

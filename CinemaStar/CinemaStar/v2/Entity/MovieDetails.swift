@@ -72,7 +72,7 @@ struct MovieDetails: Identifiable {
         releaseInfo = [
             String(movieDTO.year),
             movieDTO.countries.first?.name,
-            MovieType(rawValue: movieDTO.type)?.stringValue()
+            MovieType(rawValue: movieDTO.type)?.stringValue(),
         ].compactMap { $0 }.joined(separator: " / ")
         actors = movieDTO.persons.map { Actor(fromDTO: $0) }
         language = movieDTO.spokenLanguages?.first?.name

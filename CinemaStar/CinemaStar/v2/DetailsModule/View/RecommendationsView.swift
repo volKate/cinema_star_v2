@@ -42,7 +42,7 @@ struct RecommendationsView: View {
     }
 
     private let gridRows = [
-        GridItem(.flexible(), spacing: 16, alignment: .top)
+        GridItem(.flexible(), spacing: 16, alignment: .top),
     ]
 }
 

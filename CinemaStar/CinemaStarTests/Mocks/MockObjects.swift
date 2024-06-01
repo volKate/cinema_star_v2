@@ -39,7 +39,7 @@ enum MockObjects {
                     photo: "actor_photo_url",
                     name: "actor_name",
                     enName: ""
-                )
+                ),
             ],
             spokenLanguages: [LanguageDTO(name: "mock_language_name")],
             similarMovies: [
@@ -52,7 +52,7 @@ enum MockObjects {
                     rating: RatingDTO(
                         kp: 3.5
                     )
-                )
+                ),
             ]
         )
     )

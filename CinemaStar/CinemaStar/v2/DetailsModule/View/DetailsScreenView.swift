@@ -32,7 +32,7 @@ struct DetailsScreenView: View {
                 EmptyView()
             case .loading:
                 DetailsShimmerView()
-            case .data(let movieDetails):
+            case let .data(movieDetails):
                 makeDetailsContentView(movieDetails)
             case .noData:
                 NoDataMessageView()

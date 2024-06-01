@@ -67,7 +67,7 @@ struct DetailsShimmerView: View {
     private var actorsStubView: some View {
         ScrollView(.horizontal) {
             HStack {
-                ForEach(0..<7) { _ in
+                ForEach(0 ..< 7) { _ in
                     makeView(width: 60, height: 97)
                 }
             }

@@ -39,7 +39,7 @@ struct ActorsView: View {
     }
 
     private let gridRows = [
-        GridItem(.fixed(60), spacing: 4)
+        GridItem(.fixed(60), spacing: 4),
     ]
 
     private func makeActorView(_ actor: ActorCard) -> some View {

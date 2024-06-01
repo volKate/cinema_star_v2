@@ -1,5 +1,5 @@
 //
-//  MoviesCatalogInteractor.swift
+//  CatalogInteractor.swift
 //  CinemaStar
 //
 //  Created by Kate Volkova on 27.05.24.
@@ -21,7 +21,7 @@ final class CatalogInteractor: ObservableObject {
         self.networkService = networkService
         self.loadImageService = loadImageService
     }
-    
+
     func fetchCatalog() -> AnyPublisher<[MovieCard], NetworkError> {
         fetchMovies()
     }
@@ -41,7 +41,6 @@ final class CatalogInteractor: ObservableObject {
             }
             .replaceError(with: Image(.posterPlaceholder))
             .eraseToAnyPublisher()
-
     }
 
     private func fetchMovies() -> AnyPublisher<[MovieCard], NetworkError> {

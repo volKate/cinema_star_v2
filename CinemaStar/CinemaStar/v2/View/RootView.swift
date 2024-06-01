@@ -17,7 +17,7 @@ struct RootView: View {
             appScreenBuilder.build(view: .catalog)
                 .navigationDestination(for: AppScreen.self) { path in
                     switch path {
-                    case .details(let id):
+                    case let .details(id):
                         appScreenBuilder.build(view: .details(id: id))
                     default:
                         fatalError()
@@ -32,7 +32,8 @@ struct RootView: View {
                             if !isVisible {
                                 navigationService.alert = nil
                             }
-                        })
+                        }
+                    )
                 ) {
                     if let alert = navigationService.alert {
                         Button(alert.dismissButtonText) {}

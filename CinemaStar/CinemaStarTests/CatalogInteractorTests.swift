@@ -57,7 +57,7 @@ final class CatalogInteractorTests: XCTestCase {
                     mockNetworkService.expectedMovies.first?.posterUrl
                 )
                 expectation.fulfill()
-            } receiveValue: {_ in }
+            } receiveValue: { _ in }
 
         waitForExpectations(timeout: 3)
     }
@@ -68,7 +68,7 @@ final class CatalogInteractorTests: XCTestCase {
         requestCancellable = catalogInteractor?.fetchCatalog()
             .receive(on: RunLoop.main)
             .sink { completion in
-                if case .failure(let error) = completion {
+                if case let .failure(error) = completion {
                     XCTAssertEqual(error, .unknown)
                     expectation.fulfill()
                 }

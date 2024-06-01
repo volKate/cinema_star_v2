@@ -25,7 +25,7 @@ final class NetworkService: NetworkServiceProtocol {
                     MovieDetails(fromDTO: $0)
                 }
                 .sink { completion in
-                    if case let .failure(err)  = completion {
+                    if case let .failure(err) = completion {
                         promise(.failure(err))
                     }
                 } receiveValue: { data in
@@ -46,7 +46,7 @@ final class NetworkService: NetworkServiceProtocol {
                 .map { MoviePreview(fromDTO: $0) }
                 .collect()
                 .sink { completion in
-                    if case let .failure(err)  = completion {
+                    if case let .failure(err) = completion {
                         promise(.failure(err))
                     }
                 } receiveValue: { data in

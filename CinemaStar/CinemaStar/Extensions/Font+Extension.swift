@@ -1,4 +1,4 @@
-// UIFont+Extension.swift
+// Font+Extension.swift
 // Copyright © RoadMap. All rights reserved.
 
 import SwiftUI

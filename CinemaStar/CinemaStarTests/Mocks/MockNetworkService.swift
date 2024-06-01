@@ -11,7 +11,7 @@ final class MockNetworkService: NetworkServiceProtocol {
     let expectedMovies: [MoviePreview] = [MockObjects.mockMoviePreview]
     let expectedMovieDetails: MovieDetails = MockObjects.mockMovieDetails
 
-    func loadMovieDetails(id: Int) -> Future<CinemaStar.MovieDetails, CinemaStar.NetworkError> {
+    func loadMovieDetails(id _: Int) -> Future<CinemaStar.MovieDetails, CinemaStar.NetworkError> {
         Future { [unowned self] promise in
             if shouldResultWithError {
                 promise(.failure(.unknown))
