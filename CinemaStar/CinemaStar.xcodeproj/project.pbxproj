@@ -47,6 +47,12 @@
 		DAAAA9ED2BD6E9B50009D60C /* Inter-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DAAAA9EA2BD6E9B50009D60C /* Inter-SemiBold.ttf */; };
 		DAADF5452C09F96000C9AB20 /* CatalogInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAADF5442C09F96000C9AB20 /* CatalogInteractorTests.swift */; };
 		DAADF5472C0A026000C9AB20 /* DetailsInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAADF5462C0A026000C9AB20 /* DetailsInteractorTests.swift */; };
+		DAADF54B2C0A0D5F00C9AB20 /* NetReqCachingDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DAADF5492C0A0D5F00C9AB20 /* NetReqCachingDataModel.xcdatamodeld */; };
+		DAADF54D2C0A12C800C9AB20 /* NetworkServiceProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAADF54C2C0A12C800C9AB20 /* NetworkServiceProxy.swift */; };
+		DAADF54F2C0A17D500C9AB20 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAADF54E2C0A17D500C9AB20 /* CoreDataStack.swift */; };
+		DAADF5512C0B49BE00C9AB20 /* CachableRequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAADF5502C0B49BE00C9AB20 /* CachableRequestProtocol.swift */; };
+		DAADF5532C0B4A5800C9AB20 /* MoviesCachableRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAADF5522C0B4A5800C9AB20 /* MoviesCachableRequest.swift */; };
+		DAADF5552C0B4B1900C9AB20 /* MovieDetailsCachableRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAADF5542C0B4B1900C9AB20 /* MovieDetailsCachableRequest.swift */; };
 		DACF25822BD7E32900D78225 /* MoviePreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACF25812BD7E32900D78225 /* MoviePreview.swift */; };
 		DACF25862BD7E5E600D78225 /* WrapperDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACF25852BD7E5E600D78225 /* WrapperDTO.swift */; };
 		DACF25882BD7E61700D78225 /* MoviePreviewDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACF25872BD7E61700D78225 /* MoviePreviewDTO.swift */; };
@@ -145,6 +151,12 @@
 		DAAAA9EA2BD6E9B50009D60C /* Inter-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-SemiBold.ttf"; sourceTree = "<group>"; };
 		DAADF5442C09F96000C9AB20 /* CatalogInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogInteractorTests.swift; sourceTree = "<group>"; };
 		DAADF5462C0A026000C9AB20 /* DetailsInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsInteractorTests.swift; sourceTree = "<group>"; };
+		DAADF54A2C0A0D5F00C9AB20 /* NetReqCachingDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NetReqCachingDataModel.xcdatamodel; sourceTree = "<group>"; };
+		DAADF54C2C0A12C800C9AB20 /* NetworkServiceProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceProxy.swift; sourceTree = "<group>"; };
+		DAADF54E2C0A17D500C9AB20 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		DAADF5502C0B49BE00C9AB20 /* CachableRequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachableRequestProtocol.swift; sourceTree = "<group>"; };
+		DAADF5522C0B4A5800C9AB20 /* MoviesCachableRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesCachableRequest.swift; sourceTree = "<group>"; };
+		DAADF5542C0B4B1900C9AB20 /* MovieDetailsCachableRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsCachableRequest.swift; sourceTree = "<group>"; };
 		DACF25812BD7E32900D78225 /* MoviePreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePreview.swift; sourceTree = "<group>"; };
 		DACF25852BD7E5E600D78225 /* WrapperDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrapperDTO.swift; sourceTree = "<group>"; };
 		DACF25872BD7E61700D78225 /* MoviePreviewDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePreviewDTO.swift; sourceTree = "<group>"; };
@@ -379,6 +391,19 @@
 			path = fonts;
 			sourceTree = "<group>";
 		};
+		DAADF5482C0A0D2C00C9AB20 /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				DAADF5492C0A0D5F00C9AB20 /* NetReqCachingDataModel.xcdatamodeld */,
+				DAADF54E2C0A17D500C9AB20 /* CoreDataStack.swift */,
+				DAADF54C2C0A12C800C9AB20 /* NetworkServiceProxy.swift */,
+				DAADF5502C0B49BE00C9AB20 /* CachableRequestProtocol.swift */,
+				DAADF5522C0B4A5800C9AB20 /* MoviesCachableRequest.swift */,
+				DAADF5542C0B4B1900C9AB20 /* MovieDetailsCachableRequest.swift */,
+			);
+			path = Cache;
+			sourceTree = "<group>";
+		};
 		DACF257E2BD7D4EF00D78225 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -405,6 +430,7 @@
 		DACF25992BD807FA00D78225 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				DAADF5482C0A0D2C00C9AB20 /* Cache */,
 				DACF25C62BD849D100D78225 /* Storage */,
 				DACF25C02BD83FE200D78225 /* TokenStorage */,
 				DACF25BC2BD8363500D78225 /* Navigation */,
@@ -709,15 +735,21 @@
 				DACF25A62BD810B000D78225 /* APIRequest.swift in Sources */,
 				DA16FBF62C063404003171C8 /* NavigationService.swift in Sources */,
 				DA16FBDF2C04FB91003171C8 /* CatalogScreenView.swift in Sources */,
+				DAADF54D2C0A12C800C9AB20 /* NetworkServiceProxy.swift in Sources */,
 				DA16FBFC2C07827A003171C8 /* Typealias.swift in Sources */,
 				DA16FC1D2C08ED23003171C8 /* ErrorMessageView.swift in Sources */,
 				DA16FC1F2C08F000003171C8 /* DetailsShimmerView.swift in Sources */,
 				DACF258C2BD7E65400D78225 /* RatingDTO.swift in Sources */,
+				DAADF5552C0B4B1900C9AB20 /* MovieDetailsCachableRequest.swift in Sources */,
+				DAADF5512C0B49BE00C9AB20 /* CachableRequestProtocol.swift in Sources */,
 				DACF259E2BD80CD800D78225 /* MoviesResource.swift in Sources */,
 				DA16FBF22C062E1B003171C8 /* AppScreenBuilder.swift in Sources */,
 				DACF25D82BDAD8FF00D78225 /* Font+Extension.swift in Sources */,
+				DAADF54F2C0A17D500C9AB20 /* CoreDataStack.swift in Sources */,
+				DAADF5532C0B4A5800C9AB20 /* MoviesCachableRequest.swift in Sources */,
 				DACF25E22BDAF84400D78225 /* LoadImageService.swift in Sources */,
 				DA16FC162C08D019003171C8 /* MovieDetailsViewData.swift in Sources */,
+				DAADF54B2C0A0D5F00C9AB20 /* NetReqCachingDataModel.xcdatamodeld in Sources */,
 				DAD365D62BDC1746009A223D /* AlertMessage.swift in Sources */,
 				DA16FC002C079330003171C8 /* DetailsPresenter.swift in Sources */,
 				DA16FBEA2C0523C7003171C8 /* CatalogInteractor.swift in Sources */,
@@ -1144,6 +1176,20 @@
 			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		DAADF5492C0A0D5F00C9AB20 /* NetReqCachingDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				DAADF54A2C0A0D5F00C9AB20 /* NetReqCachingDataModel.xcdatamodel */,
+			);
+			currentVersion = DAADF54A2C0A0D5F00C9AB20 /* NetReqCachingDataModel.xcdatamodel */;
+			name = NetReqCachingDataModel.xcdatamodeld;
+			path = /Users/volkate/cinema_star_v2/CinemaStar/CinemaStar/v2/Services/Cache/NetReqCachingDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = DAAAA9A52BD6E01A0009D60C /* Project object */;
 }

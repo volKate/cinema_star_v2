@@ -19,7 +19,7 @@ enum AppScreen: Hashable {
 final class AppScreenBuilder {
     static let stub = AppScreenBuilder()
     private let navigationService = NavigationService()
-    private let networkService = NetworkService()
+    private let networkService = NetworkServiceProxy(service: NetworkService(), stack: CoreDataStack.shared)
     private let loadImageService = LoadImageProxy(service: LoadImageService())
     private let storageService = UserDefaultsStorage()
 
