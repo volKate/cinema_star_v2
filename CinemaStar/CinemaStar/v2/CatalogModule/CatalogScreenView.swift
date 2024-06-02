@@ -30,7 +30,9 @@ struct CatalogScreenView: View {
         case .loading:
             loadingView
         case let .data(movieCards):
-            makeCatalogGridView(movieCards)
+            ScrollView {
+                makeCatalogGridView(movieCards)
+            }
         case .noData:
             NoDataMessageView()
         case .error:
@@ -39,17 +41,19 @@ struct CatalogScreenView: View {
     }
 
     private var loadingView: some View {
-        makeCatalogGridView(presenter.loadingStubCards, isMock: true)
-            .redacted(reason: .placeholder)
-            .disabled(true)
-            .opacity(isLoadingAnimating ? 1 : 0.2)
-            .animation(.easeInOut(duration: 0.8).repeatForever(autoreverses: true), value: isLoadingAnimating)
-            .onAppear {
-                isLoadingAnimating = true
-            }
-            .onDisappear {
-                isLoadingAnimating = false
-            }
+        ScrollView {
+            makeCatalogGridView(presenter.loadingStubCards, isMock: true)
+                .redacted(reason: .placeholder)
+                .opacity(isLoadingAnimating ? 1 : 0.2)
+                .animation(.easeInOut(duration: 0.8).repeatForever(autoreverses: true), value: isLoadingAnimating)
+                .onAppear {
+                    isLoadingAnimating = true
+                }
+                .onDisappear {
+                    isLoadingAnimating = false
+                }
+        }
+        .disabled(true)
     }
 
     private var attributedHeaderText: AttributedString {
@@ -78,24 +82,22 @@ struct CatalogScreenView: View {
     ]
 
     private func makeCatalogGridView(_ movieCards: [MovieCard], isMock: Bool = false) -> some View {
-        ScrollView {
-            LazyVGrid(columns: gridColumns, spacing: 14) {
-                ForEach(movieCards, id: \.preview.id) { movie in
-                    MovieCardView(
-                        posterImage: movie.poster,
-                        name: movie.preview.name,
-                        rating: movie.preview.rating
-                    )
-                    .foregroundStyle(.white)
-                    .onTapGesture {
-                        if !isMock {
-                            presenter.openDetails(id: movie.preview.id)
-                        }
+        LazyVGrid(columns: gridColumns, spacing: 14) {
+            ForEach(movieCards, id: \.preview.id) { movie in
+                MovieCardView(
+                    posterImage: movie.poster,
+                    name: movie.preview.name,
+                    rating: movie.preview.rating
+                )
+                .foregroundStyle(.white)
+                .onTapGesture {
+                    if !isMock {
+                        presenter.openDetails(id: movie.preview.id)
                     }
                 }
             }
-            .padding(.horizontal, 16)
         }
+        .padding(.horizontal, 16)
     }
 }
 
