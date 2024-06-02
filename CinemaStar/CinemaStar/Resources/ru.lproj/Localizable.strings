@@ -1,0 +1,19 @@
+/* 
+  Localizable.strings
+  CinemaStar
+
+  Created by Kate Volkova on 30.05.24.
+  
+*/
+
+
+"Catalog.Title" = "Смотри исторические\nфильмы на ";
+"Catalog.Logo" = "CINEMA STAR";
+
+"Details.Title.Language" = "Язык";
+"Details.Title.Actors" = "Актеры и съемочная группа";
+"Details.Title.Recommendations" = "Смотрите также";
+"Details.Button.Watch" = "Смотреть";
+
+"Common.InDevelopmentTitle" = "Упс!";
+"Common.InDevelopmentMessage" = "Функционал в разработке :(";

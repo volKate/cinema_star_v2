@@ -2,6 +2,7 @@
 // Copyright © RoadMap. All rights reserved.
 
 @testable import CinemaStar
+import Combine
 import Foundation
 
 /// Мок сервиса загрузки данных сети
@@ -10,19 +11,23 @@ final class MockNetworkService: NetworkServiceProtocol {
     let expectedMovies: [MoviePreview] = [MockObjects.mockMoviePreview]
     let expectedMovieDetails: MovieDetails = MockObjects.mockMovieDetails
 
-    func loadMovieDetails(id: Int, completion: @escaping (MovieDetails?) -> Void) {
-        if shouldResultWithError {
-            completion(nil)
-            return
+    func loadMovieDetails(id _: Int) -> Future<CinemaStar.MovieDetails, CinemaStar.NetworkError> {
+        Future { [unowned self] promise in
+            if shouldResultWithError {
+                promise(.failure(.unknown))
+            } else {
+                promise(.success(expectedMovieDetails))
+            }
         }
-        completion(expectedMovieDetails)
     }
 
-    func loadMovies(completion: @escaping ([MoviePreview]?) -> Void) {
-        if shouldResultWithError {
-            completion(nil)
-            return
+    func loadMovies() -> Future<[CinemaStar.MoviePreview], CinemaStar.NetworkError> {
+        Future { [unowned self] promise in
+            if shouldResultWithError {
+                promise(.failure(.unknown))
+            } else {
+                promise(.success(expectedMovies))
+            }
         }
-        completion(expectedMovies)
     }
 }

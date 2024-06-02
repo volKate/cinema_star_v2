@@ -33,9 +33,27 @@ enum MockObjects {
             year: 2000,
             countries: [CountryDTO(name: "mock_country_name")],
             type: "tv_series",
-            persons: [],
+            persons: [
+                PersonDTO(
+                    id: 1,
+                    photo: "actor_photo_url",
+                    name: "actor_name",
+                    enName: ""
+                ),
+            ],
             spokenLanguages: [LanguageDTO(name: "mock_language_name")],
-            similarMovies: []
+            similarMovies: [
+                MoviePreviewDTO(
+                    id: 3,
+                    name: "mock_recommendation",
+                    poster: PosterDTO(
+                        url: "recommendation_poster_url"
+                    ),
+                    rating: RatingDTO(
+                        kp: 3.5
+                    )
+                ),
+            ]
         )
     )
 }
